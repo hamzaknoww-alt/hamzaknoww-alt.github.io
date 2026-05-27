@@ -691,4 +691,76 @@
           </div>
         </div>
         <div class="detail-row">
- 
+          <div class="detail-icon">🕐</div>
+          <div class="detail-content">
+            <span>Hours</span>
+            <p>Open Daily · Lunch & Dinner</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="map-embed">
+      <iframe
+        src="https://maps.google.com/maps?q=29.8995,70.6612&z=16&output=embed"
+        allowfullscreen
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">The Pizza Hut</div>
+  <p>Bypass 33 Morr, Kot Chutta · +92 330 849 3333</p>
+  <p style="margin-top:0.5rem;">© 2026 The Pizza Hut, Kot Chutta. All rights reserved.</p>
+</footer>
+
+<script>
+  // Floating embers
+  const hero = document.querySelector('.hero');
+  for (let i = 0; i < 18; i++) {
+    const e = document.createElement('div');
+    e.classList.add('ember');
+    const size = Math.random() * 4 + 2;
+    e.style.cssText = `
+      width:${size}px;height:${size}px;
+      left:${Math.random()*100}%;
+      bottom:${Math.random()*20}%;
+      background:${Math.random()>0.5?'#FF6B35':'#C8102E'};
+      animation-duration:${Math.random()*6+5}s;
+      animation-delay:${Math.random()*6}s;
+      box-shadow: 0 0 ${size*2}px ${Math.random()>0.5?'#FF6B35':'#C8102E'};
+    `;
+    hero.appendChild(e);
+  }
+
+  // Menu tabs
+  const tabs = document.querySelectorAll('.tab');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+    });
+  });
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.menu-item, .review-card, .stat-card').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>
