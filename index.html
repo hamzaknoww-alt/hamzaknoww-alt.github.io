@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="HJ48lGJ9wLBUrpdBaLdSRD6WqzRzkBTMGLcAqIJd6Sc" />
-    <title>The Pizza Hut - Kot Chutta</title>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,700;1,400&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>The Pizza Hut - Kot Chutta Daily Deals</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -19,230 +19,63 @@
             --whatsapp: #25d366;
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Poppins', sans-serif;
-            -webkit-tap-highlight-color: transparent;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; -webkit-tap-highlight-color: transparent; }
 
-        body {
-            background-color: var(--cream);
-            color: var(--dark);
-            overflow-x: hidden;
-        }
+        body { background-color: var(--cream); color: var(--dark); overflow-x: hidden; }
 
         header {
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=1000&q=80');
-            background-size: cover;
-            background-position: center;
-            text-align: center;
-            padding: 50px 20px;
-            color: white;
-            border-bottom: 5px solid var(--orange);
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=1000&q=80');
+            background-size: cover; background-position: center; text-align: center; padding: 45px 20px; color: white; border-bottom: 5px solid var(--orange);
         }
 
-        .logo-font {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 4.5rem;
-            letter-spacing: 2px;
-            color: white;
-            text-shadow: 3px 3px 0px var(--red);
-            line-height: 1;
-        }
-
-        .tagline {
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            font-size: 1.2rem;
-            color: var(--gold);
-            margin-top: 5px;
-            font-weight: bold;
-        }
-
-        .location-badge {
-            display: inline-block;
-            background-color: var(--orange);
-            color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            margin-top: 15px;
-            font-weight: 600;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-        }
+        .logo-font { font-family: 'Bebas Neue', sans-serif; font-size: 4rem; letter-spacing: 1px; text-shadow: 3px 3px 0px var(--red); line-height: 1; }
+        .tagline { font-size: 1rem; color: var(--gold); margin-top: 5px; font-weight: 600; }
 
         .tabs-container {
-            position: sticky;
-            top: 0;
-            background-color: var(--dark);
-            padding: 10px 0;
-            z-index: 100;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-            overflow-x: auto;
-            white-space: nowrap;
-            display: flex;
-            justify-content: flex-start;
-            scrollbar-width: none;
+            position: sticky; top: 0; background: var(--dark); padding: 12px 0; z-index: 100;
+            overflow-x: auto; white-space: nowrap; display: flex; scrollbar-width: none; box-shadow: 0 4px 10px rgba(0,0,0,0.3);
         }
-
-        .tabs-container::-webkit-scrollbar {
-            display: none;
-        }
+        .tabs-container::-webkit-scrollbar { display: none; }
 
         .tab-btn {
-            background: none;
-            border: none;
-            color: #b3b3b3;
-            font-size: 0.95rem;
-            font-weight: 600;
-            padding: 10px 18px;
-            margin: 0 5px;
-            cursor: pointer;
-            border-radius: 25px;
-            transition: all 0.3s;
-            display: inline-block;
+            background: none; border: none; color: #b3b3b3; padding: 10px 22px; cursor: pointer; font-weight: 600; font-size: 0.95rem; border-radius: 25px; transition: 0.3s; margin: 0 5px;
         }
 
-        .tab-btn.active {
-            background-color: var(--red);
-            color: white;
-            box-shadow: 0 4px 8px rgba(200,16,46,0.4);
+        .tab-btn.active { background: var(--red); color: white; box-shadow: 0 4px 8px rgba(200,16,46,0.4); }
+
+        .menu-container { max-width: 800px; margin: auto; padding: 15px; padding-bottom: 100px; }
+
+        .category-section { display: none; }
+        .category-section.active { display: block; animation: fadeIn 0.4s ease-in-out; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        .day-title { 
+            background: var(--orange); color: white; padding: 6px 15px; border-radius: 20px; 
+            font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; margin: 25px 0 12px; display: inline-block; letter-spacing: 0.5px;
         }
 
-        .menu-container {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 0 15px 100px 15px;
-        }
-
-        .category-section {
-            display: none;
-        }
-
-        .category-section.active {
-            display: block;
-            animation: fadeIn 0.4s ease-in-out;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .section-title {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 2.5rem;
-            color: var(--red);
-            margin: 25px 0 15px 0;
-            border-bottom: 2px dashed var(--orange);
-            padding-bottom: 5px;
-            letter-spacing: 1px;
-        }
+        .section-title { font-family: 'Bebas Neue', sans-serif; font-size: 2.5rem; color: var(--red); margin: 25px 0 15px 0; border-bottom: 2px dashed var(--orange); padding-bottom: 5px; }
 
         .menu-item {
-            background-color: white;
-            border-radius: 15px;
-            padding: 15px;
-            margin-bottom: 15px;
-            box-shadow: 0 4px 12px rgba(45,21,0,0.05);
-            border-left: 5px solid var(--gold);
-            display: flex;
-            flex-direction: column;
-            position: relative;
+            background: white; border-radius: 15px; padding: 15px; margin-bottom: 15px; 
+            box-shadow: 0 4px 12px rgba(45,21,0,0.05); border-left: 5px solid var(--gold);
         }
 
-        .item-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 5px;
-        }
+        .item-header { display: flex; justify-content: space-between; font-weight: 700; font-size: 1.15rem; color: var(--charcoal); }
+        .price { color: var(--red); white-space: nowrap; }
+        .details { font-size: 0.85rem; color: #666; margin-top: 5px; line-height: 1.4; }
 
-        .item-name {
-            font-size: 1.15rem;
-            font-weight: 700;
-            color: var(--charcoal);
-            max-width: 75%;
-        }
+        .price-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; background: #fffdf9; padding: 6px; border-radius: 8px; border: 1px solid #f0e6d2; }
+        .price-badge { font-size: 0.8rem; font-weight: 600; background-color: var(--cream); padding: 4px 8px; border-radius: 5px; color: var(--charcoal); border: 1px solid #e2d4b7; }
+        .price-badge span { color: var(--red); font-weight: 700; }
 
-        .item-price {
-            font-size: 1.15rem;
-            font-weight: 700;
-            color: var(--red);
-            white-space: nowrap;
-        }
+        .footer-note { text-align: center; padding: 20px; font-size: 0.85rem; color: #888; margin-top: 40px; }
 
-        .item-desc {
-            font-size: 0.85rem;
-            color: #666;
-            line-height: 1.4;
-            margin-top: 5px;
-        }
-
-        .price-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 8px;
-            background: #fffdf9;
-            padding: 6px;
-            border-radius: 8px;
-            border: 1px solid #f0e6d2;
-        }
-
-        .price-badge {
-            font-size: 0.8rem;
-            font-weight: 600;
-            background-color: var(--cream);
-            padding: 4px 8px;
-            border-radius: 5px;
-            color: var(--charcoal);
-            border: 1px solid #e2d4b7;
-        }
-
-        .price-badge span {
-            color: var(--red);
-            font-weight: 700;
-        }
-
-        .footer-note {
-            text-align: center;
-            padding: 20px;
-            font-size: 0.85rem;
-            color: #888;
-            margin-top: 40px;
-        }
-
-        .order-bar {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background-color: white;
-            box-shadow: 0 -4px 15px rgba(0,0,0,0.1);
-            padding: 12px 20px;
-            display: flex;
-            justify-content: center;
-            z-index: 1000;
-        }
-
-        .whatsapp-btn {
-            background-color: var(--whatsapp);
-            color: white;
-            text-decoration: none;
-            padding: 12px 30px;
-            border-radius: 30px;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            box-shadow: 0 4px 12px rgba(37,211,102,0.4);
-            font-size: 1.05rem;
-            width: 100%;
-            max-width: 400px;
-            justify-content: center;
+        .order-bar { position: fixed; bottom: 0; left: 0; right: 0; background: white; padding: 12px 20px; text-align: center; box-shadow: 0 -4px 15px rgba(0,0,0,0.1); z-index: 1000; }
+        .whatsapp-btn { 
+            background: var(--whatsapp); color: white; text-decoration: none; padding: 12px 30px; 
+            border-radius: 30px; font-weight: 700; display: inline-flex; align-items: center; gap: 10px; width: 100%; max-width: 400px; justify-content: center; box-shadow: 0 4px 12px rgba(37,211,102,0.4);
         }
     </style>
 </head>
@@ -250,118 +83,86 @@
 
     <header>
         <h1 class="logo-font">THE PIZZA HUT</h1>
-        <p class="tagline">Delicious & Freshly Baked</p>
-        <span class="location-badge"><i class="fas fa-map-marker-alt"></i> Bypass 33 Morr, Kot Chutta</span>
+        <p class="tagline">Kot Chutta Special Daily Deals</p>
     </header>
 
     <div class="tabs-container">
-        <button class="tab-btn active" onclick="openCategory('deals')">🔥 Hot Deals</button>
-        <button class="tab-btn" onclick="openCategory('regular-pizza')">🍕 Pizza (Regular)</button>
-        <button class="tab-btn" onclick="openCategory('special-pizza')">👑 Special & Premium</button>
-        <button class="tab-btn" onclick="openCategory('burgers-rolls')">🍔 Burgers & Rolls</button>
-        <button class="tab-btn" onclick="openCategory('shawarma-sides')">🌯 Shawarma & Sides</button>
-        <button class="tab-btn" onclick="openCategory('desi-fish')">🍲 Desi & Fish</button>
-        <button class="tab-btn" onclick="openCategory('juices-shakes')">🍹 Juices & Ice Cream</button>
+        <button class="tab-btn active" onclick="openCat('daily')">📅 Daily Specials</button>
+        <button class="tab-btn" onclick="openCat('weekend')">🎉 Weekend Deals</button>
+        <button class="tab-btn" onclick="openCat('pizza')">🍕 Main Pizza</button>
+        <button class="tab-btn" onclick="openCat('burgers')">🍔 Burgers, Rolls & Sides</button>
     </div>
 
     <div class="menu-container">
 
-        <section id="deals" class="category-section active">
-            <h2 class="section-title">Super Hot Deals</h2>
-            <p style="font-size:0.85rem; color:var(--red); font-weight:bold; margin-bottom:10px;">(ان ڈیلز پر کوئی ڈسکاؤنٹ نہیں ہے)</p>
+        <section id="daily" class="category-section active">
             
+            <div class="day-title">Monday Deal 🌙</div>
             <div class="menu-item">
-                <div class="item-header"><span class="item-name">DEAL 1</span><span class="item-price">Rs. 740</span></div>
-                <p class="item-desc">2 Zinger Burgers + 1 Half Liter Cold Drink</p>
+                <div class="item-header"><span>Monday Super Deal</span><span class="price">Rs. 1,450</span></div>
+                <p class="details">1 Small Pizza + 2 Zinger Burgers + 4 Wings + Regular Fries + Half Ltr Cold Drink</p>
+            </div>
+
+            <div class="day-title">Tuesday Deal 🔥</div>
+            <div class="menu-item">
+                <div class="item-header"><span>Tuesday Special Deal</span><span class="price">Rs. 1,850</span></div>
+                <p class="details">1 Medium Pizza + 5 Wings + 5 Nuggets + 1.5 Ltr Drink + Fries + Deep Sauce</p>
             </div>
             <div class="menu-item">
-                <div class="item-header"><span class="item-name">DEAL 2</span><span class="item-price">Rs. 420</span></div>
-                <p class="item-desc">1 Zinger Burger + 1 NR Drink + 1 Regular Fries</p>
+                <div class="item-header"><span>Tuesday Arabian Deal</span><span class="price">Rs. 1,399</span></div>
+                <p class="details">Arabian Breast + 10 Pcs Wings + Reg Fries + 1 Ltr Bottle + 5 Naan</p>
+            </div>
+
+            <div class="day-title">Wednesday Deal 🍕</div>
+            <div class="menu-item">
+                <div class="item-header"><span>Wednesday Mix Deal</span><span class="price">Rs. 1,780</span></div>
+                <p class="details">1 Medium Pizza + 1 Arabian Roll + 4 Wings + 4 Nuggets + Reg Fries</p>
+            </div>
+
+            <div class="day-title">Friday Deal ✨</div>
+            <div class="menu-item">
+                <div class="item-header"><span>Friday Hot Deal</span><span class="price">Rs. 1,699</span></div>
+                <p class="details">1 Large Pizza + 1 Zinger Burger + 1 Ltr Cold Drink</p>
             </div>
             <div class="menu-item">
-                <div class="item-header"><span class="item-name">DEAL 3</span><span class="item-price">Rs. 400</span></div>
-                <p class="item-desc">1 Tikka Burger + 1 NR Drink + 1 Regular Fries</p>
+                <div class="item-header"><span>Friday Family Offer</span><span class="price">Rs. 2,499</span></div>
+                <p class="details">1 Large Pizza + 1 Medium Pizza + 1.5 Ltr Cold Drink</p>
+            </div>
+
+        </section>
+
+        <section id="weekend" class="category-section">
+            <div class="day-title">Saturday & Sunday 🎊</div>
+            <div class="menu-item">
+                <div class="item-header"><span>Weekend Mega Deal</span><span class="price">Rs. 1,970</span></div>
+                <p class="details">1 Large Pizza + 1 Chicken Shawarma Roll + 1 Chicken Paratha Roll + 1 Zinger Burger + Fries + 2 Dips</p>
             </div>
             <div class="menu-item">
-                <div class="item-header"><span class="item-name">DEAL 4</span><span class="item-price">Rs. 1,690</span></div>
-                <p class="item-desc">1 Large Pizza + 1 1-Liter Cold Drink</p>
+                <div class="item-header"><span>Sunday Special Offer</span><span class="price">Rs. 1,490</span></div>
+                <p class="details">1 Medium Pizza + 5 Hot Wings + 1 Reg Fries + 1 Ltr Cold Drink</p>
             </div>
             <div class="menu-item">
-                <div class="item-header"><span class="item-name">DEAL 5</span><span class="item-price">Rs. 1,790</span></div>
-                <p class="item-desc">1 Medium Pizza + 1 Regular Pizza + 1 1.5 Liter Cold Drink</p>
-            </div>
-            <div class="menu-item">
-                <div class="item-header"><span class="item-name">DEAL 6</span><span class="item-price">Rs. 600</span></div>
-                <p class="item-desc">10 Pcs Crispy Chicken Wings</p>
-            </div>
-            <div class="menu-item">
-                <div class="item-header"><span class="item-name">DEAL 7</span><span class="item-price">Rs. 600</span></div>
-                <p class="item-desc">10 Pcs Chicken Hot Shots</p>
-            </div>
-            <div class="menu-item">
-                <div class="item-header"><span class="item-name">DEAL 8</span><span class="item-price">Rs. 600</span></div>
-                <p class="item-desc">10 Pcs Nuggets + 1 Regular Fries</p>
-            </div>
-            <div class="menu-item">
-                <div class="item-header"><span class="item-name">DEAL 9</span><span class="item-price">Rs. 1,000</span></div>
-                <p class="item-desc">2 Arabian Breast + 1 Half Liter Cold Drink</p>
-            </div>
-            <div class="menu-item">
-                <div class="item-header"><span class="item-name">DEAL 10</span><span class="item-price">Rs. 700</span></div>
-                <p class="item-desc">1 Paratha Roll + 1 Chicken Shawarma + 1 Half Liter Drink + 1 Reg. Fries</p>
-            </div>
-            <div class="menu-item">
-                <div class="item-header"><span class="item-name">DEAL 11</span><span class="item-price">Rs. 1,390</span></div>
-                <p class="item-desc">1 Medium Pizza + 1 Half Liter Cold Drink</p>
-            </div>
-            <div class="menu-item">
-                <div class="item-header"><span class="item-name">DEAL 12</span><span class="item-price">Rs. 700</span></div>
-                <p class="item-desc">1 Small Pizza + 1 NR Cold Drink</p>
-            </div>
-            <div class="menu-item">
-                <div class="item-header"><span class="item-name">DEAL 13</span><span class="item-price">Rs. 1,750</span></div>
-                <p class="item-desc">5 Zinger Burgers + 1 Liter Cold Drink</p>
-            </div>
-            <div class="menu-item">
-                <div class="item-header"><span class="item-name">DEAL 14</span><span class="item-price">Rs. 1,790</span></div>
-                <p class="item-desc">1 Doner Large Pizza + 1 Liter Cold Drink</p>
-            </div>
-            <div class="menu-item">
-                <div class="item-header"><span class="item-name">DEAL 15</span><span class="item-price">Rs. 790</span></div>
-                <p class="item-desc">1 Large Pasta + 1 Liter Cold Drink</p>
-            </div>
-            <div class="menu-item">
-                <div class="item-header"><span class="item-name">DEAL 16</span><span class="item-price">Rs. 1,050</span></div>
-                <p class="item-desc">3 Zinger Burgers + 1 Half Liter Cold Drink</p>
+                <div class="item-header"><span>Special Weekend Mix</span><span class="price">Rs. 1,899</span></div>
+                <p class="details">1 Medium Pizza + 1 Zinger Burger + 1 Arabian Bowl + 3 Wings + 500ml Drink</p>
             </div>
         </section>
 
-        <section id="regular-pizza" class="category-section">
-            <h2 class="section-title">Regular Pizza Flavors</h2>
-            <p style="font-size:0.9rem; color:#666; margin-bottom:15px; font-style:italic;">Flavors: Chicken Tikka, Chicken Fajita, Chicken Supreme, Hot & Spicy, Tenderi Pizza, Chicken Lover, Cheese Lover, Chicken Cheese Lover, Chicken Chili, Vegetable Pizza, Chicken Mushroom, Chicken Cheesy, Achari Pizza, Bar B Q Pizza, Chili Bong Pizza</p>
+        <section id="pizza" class="category-section">
+            <h2 class="section-title">All Pizza Flavors</h2>
             
             <div class="menu-item">
-                <div class="item-header">
-                    <span class="item-name">All Regular Pizza Flavors</span>
-                    <span class="item-price">Sizes & Rates</span>
-                </div>
+                <div class="item-header"><span>Regular Flavors</span><span class="price">Rates</span></div>
+                <p class="details">Chicken Tikka, Chicken Fajita, Chicken Supreme, Hot & Spicy, Tenderi Pizza, Chicken Lover, Cheese Lover, Chicken Chili, Vegetable Pizza, Achari Pizza, Bar B Q Pizza</p>
                 <div class="price-row">
                     <div class="price-badge">Small: <span>Rs. 1,080</span></div>
                     <div class="price-badge">Medium: <span>Rs. 2,080</span></div>
                     <div class="price-badge">Large: <span>Rs. 2,680</span></div>
                 </div>
             </div>
-        </section>
-
-        <section id="special-pizza" class="category-section">
-            <h2 class="section-title">Special & Premium Flavors</h2>
-            <p style="font-size:0.9rem; color:#666; margin-bottom:15px; font-style:italic;">Premium Flavors: Special Pizza, Mughlai Pizza, Malai Boti Pizza, Lasania Pizza, Creamy Max Pizza, Crown Crust Pizza, Doner Pizza, Kabab Stuffed Crust, Seekh Kabab Pizza</p>
             
             <div class="menu-item">
-                <div class="item-header">
-                    <span class="item-name">All Special & Premium Flavors</span>
-                    <span class="item-price">Sizes & Rates</span>
-                </div>
+                <div class="item-header"><span>Special & Premium Flavors</span><span class="price">Rates</span></div>
+                <p class="details">Special Pizza, Mughlai Pizza, Malai Boti Pizza, Lasania Pizza, Creamy Max Pizza, Crown Crust Pizza, Doner Pizza, Kabab Stuffed Crust, Seekh Kabab Pizza</p>
                 <div class="price-row">
                     <div class="price-badge">Small: <span>Rs. 1,180</span></div>
                     <div class="price-badge">Medium: <span>Rs. 2,180</span></div>
@@ -370,79 +171,20 @@
             </div>
         </section>
 
-        <section id="burgers-rolls" class="category-section">
-            <h2 class="section-title">Burgers & Chicken Rolls</h2>
-            
-            <div class="menu-item"><div class="item-header"><span class="item-name">Zinger Burger</span><span class="item-price">Rs. 320</span></div></div>
-            <div class="menu-item"><div class="item-header"><span class="item-name">Zinger Cheese Burger</span><span class="item-price">Rs. 360</span></div></div>
-            <div class="menu-item"><div class="item-header"><span class="item-name">Double Zinger Burger</span><span class="item-price">Rs. 500</span></div></div>
-            <div class="menu-item"><div class="item-header"><span class="item-name">Tikka Burger</span><span class="item-price">Rs. 280</span></div></div>
-            <div class="menu-item"><div class="item-header"><span class="item-name">Chicken Burger</span><span class="item-price">Rs. 260</span></div></div>
-            <div class="menu-item"><div class="item-header"><span class="item-name">Chicken Cheese Burger</span><span class="item-price">Rs. 300</span></div></div>
-            <div class="menu-item"><div class="item-header"><span class="item-name">Chicken Paratha Roll</span><span class="item-price">Rs. 280</span></div></div>
-            <div class="menu-item"><div class="item-header"><span class="item-name">Chicken Cheese Paratha Roll</span><span class="item-price">Rs. 330</span></div></div>
-            <div class="menu-item"><div class="item-header"><span class="item-name">Zinger Paratha Roll</span><span class="item-price">Rs. 320</span></div></div>
-            <div class="menu-item"><div class="item-header"><span class="item-name">Zinger Cheese Paratha Roll</span><span class="item-price">Rs. 360</span></div></div>
-            <div class="menu-item"><div class="item-header"><span class="item-name">Kababa Paratha Roll</span><span class="item-price">Rs. 280</span></div></div>
+        <section id="burgers" class="category-section">
+            <h2 class="section-title">Burgers, Rolls & Shawarma</h2>
+            <div class="menu-item"><div class="item-header"><span>Zinger Burger</span><span class="price">Rs. 320</span></div></div>
+            <div class="menu-item"><div class="item-header"><span>Zinger Cheese Burger</span><span class="price">Rs. 360</span></div></div>
+            <div class="menu-item"><div class="item-header"><span>Chicken Paratha Roll</span><span class="price">Rs. 280</span></div></div>
+            <div class="menu-item"><div class="item-header"><span>Chicken Shawarma</span><span class="price">Rs. 180</span></div></div>
+            <div class="menu-item"><div class="item-header"><span>Chicken Cheese Shawarma</span><span class="price">Rs. 220</span></div></div>
+            <div class="menu-item"><div class="item-header"><span>French Fries (Regular)</span><span class="price">Rs. 130</span></div></div>
+            <div class="menu-item"><div class="item-header"><span>Masala Fries (Regular)</span><span class="price">Rs. 150</span></div></div>
         </section>
 
-        <section id="shawarma-sides" class="category-section">
-            <h2 class="section-title">Shawarma, Pasta & Sides</h2>
-            
-            <div class="menu-item"><div class="item-header"><span class="item-name">Chicken Shawarma</span><span class="item-price">Rs. 180</span></div></div>
-            <div class="menu-item"><div class="item-header"><span class="item-name">Chicken Cheese Shawarma</span><span class="item-price">Rs. 220</span></div></div>
-            <div class="menu-item"><div class="item-header"><span class="item-name">Zinger Shawarma</span><span class="item-price">Rs. 260</span></div></div>
-            <div class="menu-item"><div class="item-header"><span class="item-name">Zinger Cheese Shawarma</span><span class="item-price">Rs. 300</span></div></div>
-            <div class="menu-item"><div class="item-header"><span class="item-name">Platter Shawarma</span><span class="item-price">Rs. 350</span></div></div>
-            <div class="menu-item"><div class="item-header"><span class="item-name">Chicken Pasta (Large)</span><span class="item-price">Rs. 750</span></div></div>
-            <div class="menu-item"><div class="item-header"><span class="item-name">French Fries (Regular)</span><span class="item-price">Rs. 130</span></div></div>
-            <div class="menu-item"><div class="item-header"><span class="item-name">French Fries (Large)</span><span class="item-price">Rs. 250</span></div></div>
-            <div class="menu-item"><div class="item-header"><span class="item-name">Masala Fries (Regular)</span><span class="item-price">Rs. 150</span></div></div>
-            <div class="menu-item"><div class="item-header"><span class="item-name">Masala Fries (Large)</span><span class="item-price">Rs. 280</span></div></div>
-            <div class="menu-item"><div class="item-header"><span class="item-name">Garlic Fries</span><span class="item-price">Rs. 300</span></div></div>
-            <div class="menu-item"><div class="item-header"><span class="item-name">Chicken Piece (Fried)</span><span class="item-price">Rs. 240</span></div></div>
-        </section>
-
-        <section id="desi-fish" class="category-section">
-            <h2 class="section-title">Desi Cuisine & Winter Special Fish</h2>
-            
-            <div class="menu-item"><div class="item-header"><span class="item-name">Chicken Karahi (Full)</span><span class="item-price">Rs. 1,400</span></div></div>
-            <div class="menu-item"><div class="item-header"><span class="item-name">Chicken Karahi (Half)</span><span class="item-price">Rs. 750</span></div></div>
-            <div class="menu-item"><div class="item-header"><span class="item-name">Mutton Karahi (Full)</span><span class="item-price">Rs. 2,600</span></div></div>
-            <div class="menu-item"><div class="item-header"><span class="item-name">Mutton Karahi (Half)</span><span class="item-price">Rs. 1,350</span></div></div>
-            <div class="menu-item">
-                <div class="item-header"><span class="item-name">Finger Fish (Per Kg)</span><span class="item-price">Rs. 1,200</span></div>
-                <p class="item-desc">Crispy boneless fish strips served with special sauce.</p>
-            </div>
-            <div class="menu-item">
-                <div class="item-header"><span class="item-name">Fish Biscuit (Per Kg)</span><span class="item-price">Rs. 1,000</span></div>
-                <p class="item-desc">Traditional crunchy fried fish pieces.</p>
-            </div>
-        </section>
-
-        <section id="juices-shakes" class="category-section">
-            <h2 class="section-title">Refreshing Juices, Shakes & Ice Cream</h2>
-            
-            <div class="menu-item">
-                <div class="item-header"><span class="item-name">Seasonal Fresh Juices</span><span class="item-price">Rs. 150</span></div>
-                <p class="item-desc">Mango, Orange, Apple, or Carrot (As per season availability)</p>
-            </div>
-            <div class="menu-item">
-                <div class="item-header"><span class="item-name">Milk Shakes</span><span class="item-price">Rs. 180</span></div>
-                <p class="item-desc">Banana Shake, Mango Shake, Dates (Khajoor) Shake, Almond Shake</p>
-            </div>
-            <div class="menu-item">
-                <div class="item-header"><span class="item-name">Premium Chocolate Oreo Shake</span><span class="item-price">Rs. 220</span></div>
-                <p class="item-desc">Thick blended shake with Oreo biscuits, chocolate syrup, and ice cream.</p>
-            </div>
-            <div class="menu-item">
-                <div class="item-header"><span class="item-name">Premium Ice Cream Scoop</span><span class="item-price">Rs. 80</span></div>
-                <p class="item-desc">Kulfa, Vanilla, Chocolate, Mango, Pista, Tutti Fruity, Strawberry</p>
-            </div>
-        </section>
-
-        <p class="footer-note">© 2026 The Pizza Hut Kot Chutta. All Rights Reserved.</p>
     </div>
+
+    <p class="footer-note">© 2026 The Pizza Hut Kot Chutta. All Rights Reserved.</p>
 
     <div class="order-bar">
         <a href="https://wa.me/923308493333" class="whatsapp-btn" target="_blank">
@@ -451,24 +193,22 @@
     </div>
 
     <script>
-        function openCategory(categoryName) {
-            var i;
-            var x = document.getElementsByClassName("category-section");
-            var buttons = document.getElementsByClassName("tab-btn");
+        function openCat(name) {
+            var sections = document.getElementsByClassName("category-section");
+            var tabs = document.getElementsByClassName("tab-btn");
             
-            for (i = 0; i < x.length; i++) {
-                x[i].style.display = "none";  
-                x[i].classList.remove("active");
+            for (var i = 0; i < sections.length; i++) {
+                sections[i].style.display = "none";
+                sections[i].classList.remove("active");
             }
-            for (i = 0; i < buttons.length; i++) {
-                buttons[i].classList.remove("active");
+            for (var i = 0; i < tabs.length; i++) {
+                tabs[i].classList.remove("active");
             }
             
-            document.getElementById(categoryName).style.display = "block";  
-            document.getElementById(categoryName).classList.add("active");  
+            document.getElementById(name).style.display = "block";
+            document.getElementById(name).classList.add("active");
             event.currentTarget.classList.add("active");
-
-            // Smooth scroll tabs
+            
             event.currentTarget.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
         }
     </script>
