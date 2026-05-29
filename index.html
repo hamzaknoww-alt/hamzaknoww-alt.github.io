@@ -1,766 +1,432 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Pizza Hut – Kot Chutta</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --red: #C8102E;
-    --orange: #FF6B35;
-    --cream: #FFF8EE;
-    --dark: #1A0A00;
-    --char: #2D1500;
-    --gold: #D4A843;
-  }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="google-site-verification" content="google10b0376c2" />
+    
+    <title>The Pizza Hut – Kot Chutta</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&family=Noto+Nastaliq+Urdu&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    <style>
+        :root {
+            --red: #C8102E;
+            --orange: #FF6B35;
+            --cream: #FFF8EE;
+            --dark: #1A0A00;
+            --char: #2D1500;
+            --gold: #D4A843;
+            --whatsapp: #25d366;
+        }
 
-  html { scroll-behavior: smooth; }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            background: var(--dark);
+            color: var(--cream);
+            font-family: 'DM Sans', sans-serif;
+            overflow-x: hidden;
+        }
 
-  body {
-    background: var(--dark);
-    color: var(--cream);
-    font-family: 'DM Sans', sans-serif;
-    overflow-x: hidden;
-  }
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.35;
+        }
 
-  /* ─── NOISE OVERLAY ─── */
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-    pointer-events: none;
-    z-index: 9999;
-    opacity: 0.35;
-  }
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 2rem;
+            background: rgba(26,10,0,0.95);
+            border-bottom: 1px solid rgba(255,248,238,0.05);
+        }
+        .nav-logo {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 1.8rem;
+            letter-spacing: 0.15em;
+            color: var(--gold);
+        }
 
-  /* ─── NAV ─── */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.2rem 3rem;
-    background: linear-gradient(to bottom, rgba(26,10,0,0.95), transparent);
-  }
-  .nav-logo {
-    font-family: 'Bebas Neue', cursive;
-    font-size: 1.8rem;
-    letter-spacing: 0.15em;
-    color: var(--gold);
-  }
-  .nav-links {
-    display: flex;
-    gap: 2.5rem;
-    list-style: none;
-  }
-  .nav-links a {
-    color: var(--cream);
-    text-decoration: none;
-    font-size: 0.8rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    opacity: 0.8;
-    transition: opacity 0.2s, color 0.2s;
-  }
-  .nav-links a:hover { opacity: 1; color: var(--gold); }
+        .hero {
+            min-height: 50vh;
+            display: grid;
+            place-items: center;
+            position: relative;
+            overflow: hidden;
+            padding: 6rem 2rem 2rem;
+            text-align: center;
+        }
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 80% 60% at 50% 30%, rgba(200,16,46,0.25) 0%, transparent 70%), var(--dark);
+        }
+        .hero-content { position: relative; max-width: 900px; }
+        .hero-title {
+            font-family: 'Bebas Neue', cursive;
+            font-size: clamp(3.5rem, 10vw, 7rem);
+            line-height: 0.9;
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+        .badge-urdu {
+            font-family: 'Noto Nastaliq Urdu', serif;
+            background-color: var(--red);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 1rem;
+            display: inline-block;
+            margin-top: 10px;
+        }
 
-  /* ─── HERO ─── */
-  .hero {
-    min-height: 100vh;
-    display: grid;
-    place-items: center;
-    position: relative;
-    overflow: hidden;
-    padding: 6rem 2rem 4rem;
-  }
-  .hero-bg {
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(ellipse 80% 60% at 50% 30%, rgba(200,16,46,0.25) 0%, transparent 70%),
-      radial-gradient(ellipse 40% 40% at 80% 70%, rgba(255,107,53,0.15) 0%, transparent 60%),
-      var(--dark);
-  }
-  .ember {
-    position: absolute;
-    border-radius: 50%;
-    animation: float linear infinite;
-    pointer-events: none;
-  }
-  @keyframes float {
-    0%   { transform: translateY(0) scale(1); opacity: 0; }
-    10%  { opacity: 1; }
-    90%  { opacity: 0.6; }
-    100% { transform: translateY(-110vh) scale(0.3); opacity: 0; }
-  }
-  .hero-content {
-    position: relative;
-    text-align: center;
-    max-width: 900px;
-  }
-  .hero-eyebrow {
-    font-size: 0.75rem;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: var(--orange);
-    margin-bottom: 1.2rem;
-    animation: fadeUp 0.8s ease both;
-  }
-  .hero-title {
-    font-family: 'Bebas Neue', cursive;
-    font-size: clamp(5rem, 16vw, 13rem);
-    line-height: 0.88;
-    letter-spacing: 0.02em;
-    background: linear-gradient(135deg, #fff 0%, var(--gold) 50%, var(--orange) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: fadeUp 0.9s 0.1s ease both;
-  }
-  .hero-sub {
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    font-size: clamp(1rem, 2.5vw, 1.5rem);
-    color: rgba(255,248,238,0.65);
-    margin-top: 1.2rem;
-    animation: fadeUp 1s 0.2s ease both;
-  }
-  .hero-location {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-top: 2rem;
-    padding: 0.6rem 1.4rem;
-    border: 1px solid rgba(212,168,67,0.35);
-    border-radius: 2rem;
-    font-size: 0.8rem;
-    letter-spacing: 0.1em;
-    color: var(--gold);
-    animation: fadeUp 1s 0.3s ease both;
-  }
-  .hero-cta {
-    display: inline-flex;
-    gap: 1rem;
-    margin-top: 3rem;
-    animation: fadeUp 1s 0.4s ease both;
-  }
-  .btn {
-    padding: 0.9rem 2.4rem;
-    font-size: 0.78rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    text-decoration: none;
-    border-radius: 0.2rem;
-    cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 500;
-    border: none;
-  }
-  .btn:hover { transform: translateY(-2px); }
-  .btn-primary {
-    background: var(--red);
-    color: #fff;
-    box-shadow: 0 4px 24px rgba(200,16,46,0.45);
-  }
-  .btn-primary:hover { box-shadow: 0 8px 32px rgba(200,16,46,0.6); }
-  .btn-outline {
-    background: transparent;
-    color: var(--cream);
-    border: 1px solid rgba(255,248,238,0.3);
-  }
-  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+        .tabs-container {
+            position: sticky;
+            top: 70px;
+            background-color: var(--char);
+            z-index: 90;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            overflow-x: auto;
+            white-space: nowrap;
+            display: flex;
+            padding: 15px 10px;
+            border-bottom: 1px solid rgba(212,168,67,0.2);
+        }
+        .tab-btn {
+            background: transparent;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            padding: 8px 18px;
+            margin: 0 5px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            transition: all 0.3s;
+        }
+        .tab-btn.active, .tab-btn:hover {
+            background-color: var(--red);
+            border-color: var(--red);
+            color: white;
+        }
 
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(28px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
+        .container { max-width: 1100px; margin: 30px auto; padding: 0 15px; }
 
-  /* ─── DIVIDER ─── */
-  .flame-divider {
-    text-align: center;
-    font-size: 2rem;
-    padding: 0.5rem 0;
-    opacity: 0.6;
-    letter-spacing: 0.3em;
-  }
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            display: none;
+        }
+        .menu-grid.active-grid { display: grid; }
 
-  /* ─── SECTION COMMON ─── */
-  section { padding: 6rem 2rem; }
-  .section-label {
-    font-size: 0.7rem;
-    letter-spacing: 0.35em;
-    text-transform: uppercase;
-    color: var(--orange);
-    margin-bottom: 0.8rem;
-  }
-  .section-title {
-    font-family: 'Bebas Neue', cursive;
-    font-size: clamp(2.8rem, 7vw, 5rem);
-    line-height: 1;
-    letter-spacing: 0.04em;
-    color: var(--cream);
-  }
-  .section-title span { color: var(--gold); }
+        .card {
+            background: rgba(255,248,238,0.03);
+            border: 1px solid rgba(255,248,238,0.06);
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.3s;
+        }
+        .card:hover { transform: translateY(-4px); background: rgba(255,248,238,0.06); }
+        .card-header {
+            background-color: var(--char);
+            padding: 12px 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(212,168,67,0.2);
+        }
+        .deal-id { color: var(--gold); font-family: 'Bebas Neue', cursive; font-size: 1.2rem; }
+        .deal-price { color: var(--orange); font-weight: bold; }
+        .card-body { padding: 15px; }
+        .card-body ul { list-style: none; }
+        .card-body ul li { margin-bottom: 6px; font-size: 0.9rem; color: rgba(255,248,238,0.75); }
+        .card-body ul li::before { content: "✓ "; color: var(--gold); }
 
-  /* ─── ABOUT ─── */
-  .about {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5rem;
-    max-width: 1100px;
-    margin: 0 auto;
-    align-items: center;
-  }
-  .about-text p {
-    margin-top: 1.5rem;
-    font-size: 1rem;
-    line-height: 1.8;
-    color: rgba(255,248,238,0.7);
-    font-weight: 300;
-  }
-  .about-stats {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2px;
-  }
-  .stat-card {
-    background: rgba(255,248,238,0.04);
-    border: 1px solid rgba(255,248,238,0.07);
-    padding: 2.5rem 2rem;
-    transition: background 0.3s;
-  }
-  .stat-card:hover { background: rgba(212,168,67,0.07); }
-  .stat-num {
-    font-family: 'Bebas Neue', cursive;
-    font-size: 3.5rem;
-    color: var(--gold);
-    line-height: 1;
-  }
-  .stat-label {
-    font-size: 0.75rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: rgba(255,248,238,0.45);
-    margin-top: 0.4rem;
-  }
+        .order-btn {
+            display: block;
+            background-color: var(--whatsapp);
+            color: white;
+            text-align: center;
+            padding: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.85rem;
+            transition: opacity 0.3s;
+        }
+        .order-btn:hover { opacity: 0.9; }
 
-  /* ─── MENU ─── */
-  .menu-section { background: var(--char); }
-  .menu-wrapper { max-width: 1100px; margin: 0 auto; }
-  .menu-header { margin-bottom: 3.5rem; }
-  .menu-tabs {
-    display: flex;
-    gap: 0.5rem;
-    margin-top: 1.5rem;
-    flex-wrap: wrap;
-  }
-  .tab {
-    padding: 0.5rem 1.4rem;
-    font-size: 0.75rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    border: 1px solid rgba(255,248,238,0.15);
-    border-radius: 2rem;
-    cursor: pointer;
-    background: transparent;
-    color: rgba(255,248,238,0.55);
-    transition: all 0.2s;
-    font-family: 'DM Sans', sans-serif;
-  }
-  .tab.active, .tab:hover {
-    background: var(--red);
-    border-color: var(--red);
-    color: #fff;
-  }
-  .menu-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 1.5px;
-  }
-  .menu-item {
-    background: rgba(255,248,238,0.03);
-    border: 1px solid rgba(255,248,238,0.05);
-    padding: 2rem;
-    position: relative;
-    overflow: hidden;
-    transition: background 0.3s;
-    cursor: default;
-  }
-  .menu-item::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0;
-    width: 3px;
-    height: 0;
-    background: var(--red);
-    transition: height 0.3s;
-  }
-  .menu-item:hover::before { height: 100%; }
-  .menu-item:hover { background: rgba(255,248,238,0.06); }
-  .item-emoji { font-size: 2rem; margin-bottom: 1rem; }
-  .item-name {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: var(--cream);
-    margin-bottom: 0.4rem;
-  }
-  .item-desc {
-    font-size: 0.82rem;
-    color: rgba(255,248,238,0.45);
-    line-height: 1.6;
-  }
-  .item-price {
-    margin-top: 1.2rem;
-    font-family: 'Bebas Neue', cursive;
-    font-size: 1.6rem;
-    color: var(--gold);
-    letter-spacing: 0.05em;
-  }
-  .item-badge {
-    position: absolute;
-    top: 1rem; right: 1rem;
-    font-size: 0.6rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    padding: 0.25rem 0.7rem;
-    background: var(--red);
-    color: #fff;
-    border-radius: 1rem;
-  }
+        .table-container {
+            grid-column: 1/-1;
+            background: rgba(255,248,238,0.02);
+            border: 1px solid rgba(255,248,238,0.05);
+            border-radius: 8px;
+            padding: 15px;
+            overflow-x: auto;
+        }
+        .info-box {
+            background: rgba(212,168,67,0.1);
+            border: 1px dashed var(--gold);
+            padding: 12px;
+            border-radius: 6px;
+            text-align: center;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            color: var(--gold);
+        }
+        .pizza-table { width: 100%; border-collapse: collapse; text-align: left; }
+        .pizza-table th, .pizza-table td { padding: 12px; border-bottom: 1px solid rgba(255,248,238,0.05); }
+        .pizza-table th { color: var(--orange); font-family: 'Bebas Neue', cursive; font-size: 1.1rem; }
+        .pizza-table td { font-size: 0.9rem; }
+        .inline-order-btn {
+            background: var(--whatsapp);
+            color: white;
+            padding: 4px 10px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.8rem;
+        }
 
-  /* ─── REVIEWS ─── */
-  .reviews-section { max-width: 1100px; margin: 0 auto; }
-  .reviews-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 1.5rem;
-    margin-top: 3rem;
-  }
-  .review-card {
-    background: rgba(255,248,238,0.04);
-    border: 1px solid rgba(255,248,238,0.07);
-    padding: 2rem;
-    border-radius: 0.2rem;
-    transition: transform 0.25s;
-  }
-  .review-card:hover { transform: translateY(-4px); }
-  .stars { color: var(--gold); font-size: 0.85rem; letter-spacing: 0.1em; margin-bottom: 1rem; }
-  .review-text {
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    font-size: 0.92rem;
-    line-height: 1.7;
-    color: rgba(255,248,238,0.7);
-  }
-  .review-author {
-    margin-top: 1.2rem;
-    font-size: 0.72rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: rgba(255,248,238,0.35);
-  }
+        footer {
+            background: var(--char);
+            padding: 3rem 1.5rem;
+            text-align: center;
+            border-top: 1px solid rgba(212,168,67,0.2);
+            margin-top: 50px;
+        }
+        .footer-logo { font-family: 'Bebas Neue', cursive; font-size: 2rem; color: var(--gold); }
+        footer p { font-size: 0.8rem; color: rgba(255,248,238,0.4); margin-top: 5px; }
 
-  /* ─── CONTACT ─── */
-  .contact-section {
-    background: linear-gradient(135deg, var(--char) 0%, var(--dark) 100%);
-    position: relative;
-    overflow: hidden;
-  }
-  .contact-section::before {
-    content: 'PIZZA';
-    position: absolute;
-    right: -2rem;
-    bottom: -3rem;
-    font-family: 'Bebas Neue', cursive;
-    font-size: 18rem;
-    color: rgba(200,16,46,0.04);
-    pointer-events: none;
-    letter-spacing: 0.02em;
-  }
-  .contact-grid {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5rem;
-    align-items: start;
-  }
-  .contact-info { position: relative; z-index: 1; }
-  .contact-info p {
-    margin-top: 1.5rem;
-    font-size: 0.95rem;
-    line-height: 1.8;
-    color: rgba(255,248,238,0.6);
-    font-weight: 300;
-  }
-  .contact-detail {
-    margin-top: 2.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1.2rem;
-  }
-  .detail-row {
-    display: flex;
-    gap: 1rem;
-    align-items: flex-start;
-  }
-  .detail-icon {
-    width: 2.5rem;
-    height: 2.5rem;
-    background: rgba(200,16,46,0.15);
-    border: 1px solid rgba(200,16,46,0.3);
-    border-radius: 0.2rem;
-    display: grid;
-    place-items: center;
-    font-size: 1rem;
-    flex-shrink: 0;
-  }
-  .detail-content span {
-    display: block;
-    font-size: 0.68rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--orange);
-    margin-bottom: 0.2rem;
-  }
-  .detail-content p {
-    margin: 0;
-    font-size: 0.9rem;
-    color: rgba(255,248,238,0.75);
-  }
-  .map-embed {
-    border-radius: 0.2rem;
-    overflow: hidden;
-    border: 1px solid rgba(255,248,238,0.08);
-    position: relative;
-    z-index: 1;
-    height: 380px;
-  }
-  .map-embed iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-    filter: grayscale(40%) invert(1) hue-rotate(180deg) saturate(0.7);
-  }
-
-  /* ─── ORDER BANNER ─── */
-  .order-banner {
-    background: var(--red);
-    padding: 3.5rem 2rem;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .order-banner::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse 60% 100% at 50% 50%, rgba(255,255,255,0.08) 0%, transparent 70%);
-  }
-  .order-banner h2 {
-    font-family: 'Bebas Neue', cursive;
-    font-size: clamp(2.5rem, 6vw, 4.5rem);
-    letter-spacing: 0.06em;
-    margin-bottom: 0.5rem;
-  }
-  .order-banner p {
-    font-size: 0.9rem;
-    opacity: 0.8;
-    margin-bottom: 2rem;
-  }
-  .order-banner .btn-outline {
-    border-color: rgba(255,255,255,0.5);
-    color: #fff;
-    font-size: 0.85rem;
-    padding: 1rem 3rem;
-  }
-  .order-banner .btn-outline:hover {
-    background: rgba(255,255,255,0.12);
-    color: #fff;
-    border-color: #fff;
-  }
-
-  /* ─── FOOTER ─── */
-  footer {
-    padding: 3rem 2rem;
-    text-align: center;
-    border-top: 1px solid rgba(255,248,238,0.07);
-  }
-  .footer-logo {
-    font-family: 'Bebas Neue', cursive;
-    font-size: 2rem;
-    letter-spacing: 0.15em;
-    color: var(--gold);
-    margin-bottom: 0.5rem;
-  }
-  footer p {
-    font-size: 0.75rem;
-    color: rgba(255,248,238,0.25);
-    letter-spacing: 0.1em;
-  }
-
-  /* ─── RESPONSIVE ─── */
-  @media (max-width: 768px) {
-    nav { padding: 1rem 1.5rem; }
-    .nav-links { display: none; }
-    .about, .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
-    .hero-cta { flex-direction: column; align-items: center; }
-  }
-</style>
+        @media (max-width: 768px) {
+            .tabs-container { justify-content: flex-start; }
+        }
+    </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
-  <div class="nav-logo">The Pizza Hut</div>
-  <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#menu">Menu</a></li>
-    <li><a href="#reviews">Reviews</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-</nav>
+    <nav>
+        <div class="nav-logo">The Pizza Hut</div>
+    </nav>
 
-<!-- HERO -->
-<section class="hero" id="home">
-  <div class="hero-bg"></div>
-  <!-- Embers JS below -->
-  <div class="hero-content">
-    <p class="hero-eyebrow">🔥 Kot Chutta's Finest Slice</p>
-    <h1 class="hero-title">THE<br>PIZZA<br>HUT</h1>
-    <p class="hero-sub">Wood-fired flavours, hand-crafted with love</p>
-    <div class="hero-location">
-      <span>📍</span> Bypass 33 Morr, Kot Chutta, Pakistan
-    </div>
-    <div class="hero-cta">
-      <a href="tel:+923308493333" class="btn btn-primary">Order Now</a>
-      <a href="#menu" class="btn btn-outline">View Menu</a>
-    </div>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section id="about">
-  <div class="about">
-    <div class="about-text">
-      <p class="section-label">Our Story</p>
-      <h2 class="section-title">Crafted for <span>Kot Chutta</span></h2>
-      <p>Nestled on the Bypass at 33 Morr, The Pizza Hut brings the art of wood-fired pizza to the heart of Kot Chutta. We use fresh ingredients and time-honoured techniques to create pizzas that are crispy, loaded, and made just for you.</p>
-      <p>Whether it's a quick lunch or a family feast, our doors are always open. Dine in or call ahead — we deliver hot, fast, and delicious.</p>
-      <br>
-      <a href="tel:+923308493333" class="btn btn-primary">📞 +92 330 849 3333</a>
-    </div>
-    <div class="about-stats">
-      <div class="stat-card">
-        <div class="stat-num">76+</div>
-        <div class="stat-label">Happy Reviews</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-num">3.5★</div>
-        <div class="stat-label">Avg Rating</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-num">10+</div>
-        <div class="stat-label">Menu Items</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-num">🍕</div>
-        <div class="stat-label">Fresh Daily</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- MENU -->
-<section id="menu" class="menu-section">
-  <div class="menu-wrapper">
-    <div class="menu-header">
-      <p class="section-label">What We Serve</p>
-      <h2 class="section-title">Our <span>Menu</span></h2>
-      <div class="menu-tabs">
-        <button class="tab active">All</button>
-        <button class="tab">Pizzas</button>
-        <button class="tab">Burgers</button>
-        <button class="tab">Deals</button>
-      </div>
-    </div>
-    <div class="menu-grid">
-      <div class="menu-item">
-        <div class="item-badge">Best Seller</div>
-        <div class="item-emoji">🍕</div>
-        <div class="item-name">Malai Boti Pizza</div>
-        <div class="item-desc">Tender malai boti chunks on a creamy white base with mozzarella and fresh herbs.</div>
-        <div class="item-price">PKR 850</div>
-      </div>
-      <div class="menu-item">
-        <div class="item-emoji">🍕</div>
-        <div class="item-name">BBQ Chicken Pizza</div>
-        <div class="item-desc">Smoky BBQ sauce, grilled chicken, red onions, and a double cheese blend.</div>
-        <div class="item-price">PKR 799</div>
-      </div>
-      <div class="menu-item">
-        <div class="item-badge">Spicy</div>
-        <div class="item-emoji">🍕</div>
-        <div class="item-name">Peri Peri Pizza</div>
-        <div class="item-desc">Fiery peri-peri chicken, jalapeños, and a zesty tomato base for heat lovers.</div>
-        <div class="item-price">PKR 780</div>
-      </div>
-      <div class="menu-item">
-        <div class="item-emoji">🍔</div>
-        <div class="item-name">Crispy Chicken Burger</div>
-        <div class="item-desc">Golden crispy fillet, fresh lettuce, pickles, and our house sauce in a toasted brioche bun.</div>
-        <div class="item-price">PKR 420</div>
-      </div>
-      <div class="menu-item">
-        <div class="item-emoji">🍔</div>
-        <div class="item-name">Beef Smash Burger</div>
-        <div class="item-desc">Double smashed patty, caramelized onions, American cheese and secret sauce.</div>
-        <div class="item-price">PKR 550</div>
-      </div>
-      <div class="menu-item">
-        <div class="item-badge">Deal</div>
-        <div class="item-emoji">🎉</div>
-        <div class="item-name">Family Deal</div>
-        <div class="item-desc">Large pizza + 2 burgers + garlic bread + 1.5L drink — everything for a full family meal.</div>
-        <div class="item-price">PKR 1,899</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- REVIEWS -->
-<section id="reviews">
-  <div class="reviews-section">
-    <p class="section-label">What People Say</p>
-    <h2 class="section-title">Customer <span>Reviews</span></h2>
-    <div class="reviews-grid">
-      <div class="review-card">
-        <div class="stars">★★★★★</div>
-        <p class="review-text">"It was our first order today. Very polite and delivered on time. The food is delicious, fresh and looks very tidy. 10/10 especially in this area."</p>
-        <p class="review-author">— Google Reviewer</p>
-      </div>
-      <div class="review-card">
-        <div class="stars">★★★★★</div>
-        <p class="review-text">"Delicious meal here in our Kot Chutta city. The food was amazing, the staff was very nice and the place was tidy and clean as well."</p>
-        <p class="review-author">— Local Customer</p>
-      </div>
-      <div class="review-card">
-        <div class="stars">★★★★☆</div>
-        <p class="review-text">"Great pizza options for this area. Fast delivery, hot food, and friendly staff. Will definitely order again when I'm in Kot Chutta."</p>
-        <p class="review-author">— Verified Visitor</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ORDER BANNER -->
-<div class="order-banner">
-  <h2>Ready to Order?</h2>
-  <p>Call us now and get hot pizza delivered to your door.</p>
-  <a href="tel:+923308493333" class="btn btn-outline">📞 +92 330 849 3333</a>
-</div>
-
-<!-- CONTACT -->
-<section id="contact" class="contact-section">
-  <div class="contact-grid">
-    <div class="contact-info">
-      <p class="section-label">Find Us</p>
-      <h2 class="section-title">Visit <span>Us</span></h2>
-      <p>Come experience the warmth of our restaurant or place a call and we'll bring the pizza to you. Located right on the Bypass at 33 Morr — easy to find, impossible to forget.</p>
-      <div class="contact-detail">
-        <div class="detail-row">
-          <div class="detail-icon">📍</div>
-          <div class="detail-content">
-            <span>Address</span>
-            <p>Bypass, 33 Morr, Kot Chutta, Pakistan</p>
-          </div>
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">THE PIZZA HUT</h1>
+            <p style="color: var(--orange); letter-spacing: 0.2em; font-size: 0.8rem; text-transform: uppercase;">Bypass 33 Morr, Kot Chutta</p>
+            <div class="badge-urdu">ان ڈیلز پر کوئی ڈسکاؤنٹ نہیں ہے</div>
         </div>
-        <div class="detail-row">
-          <div class="detail-icon">📞</div>
-          <div class="detail-content">
-            <span>Phone</span>
-            <p><a href="tel:+923308493333" style="color:inherit;">+92 330 849 3333</a></p>
-          </div>
-        </div>
-        <div class="detail-row">
-          <div class="detail-icon">🕐</div>
-          <div class="detail-content">
-            <span>Hours</span>
-            <p>Open Daily · Lunch & Dinner</p>
-          </div>
-        </div>
-      </div>
+    </section>
+
+    <div class="tabs-container">
+        <button class="tab-btn active" onclick="openCategory('deals')">🔥 Hot Deals</button>
+        <button class="tab-btn" onclick="openCategory('regular-pizza')">🍕 Regular Pizza</button>
+        <button class="tab-btn" onclick="openCategory('special-pizza')">👑 Special & Doner</button>
+        <button class="tab-btn" onclick="openCategory('burgers')">🍔 Burgers & Rolls</button>
+        <button class="tab-btn" onclick="openCategory('sides')">🍟 Shawarma & Sides</button>
     </div>
-    <div class="map-embed">
-      <iframe
-        src="https://maps.google.com/maps?q=29.8995,70.6612&z=16&output=embed"
-        allowfullscreen
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade">
-      </iframe>
+
+    <div class="container">
+
+        <div id="deals" class="menu-grid active-grid">
+            <div class="card">
+                <div><div class="card-header"><span class="deal-id">DEAL 1</span><span class="deal-price">Rs. 740</span></div><div class="card-body"><ul><li>2 Zinger Burgers</li><li>1 Half Liter Drink</li></ul></div></div>
+                <a href="https://wa.me/923308493333?text=I%20want%20to%20order%20Hot%20Deal%201" target="_blank" class="order-btn"><i class="fab fa-whatsapp"></i> Order on WhatsApp</a>
+            </div>
+            <div class="card">
+                <div><div class="card-header"><span class="deal-id">DEAL 2</span><span class="deal-price">Rs. 420</span></div><div class="card-body"><ul><li>1 Zinger Burger</li><li>1 NR Drink</li><li>1 Reg. Fries</li></ul></div></div>
+                <a href="https://wa.me/923308493333?text=I%20want%20to%20order%20Hot%20Deal%202" target="_blank" class="order-btn"><i class="fab fa-whatsapp"></i> Order on WhatsApp</a>
+            </div>
+            <div class="card">
+                <div><div class="card-header"><span class="deal-id">DEAL 3</span><span class="deal-price">Rs. 400</span></div><div class="card-body"><ul><li>1 Tikka Burger</li><li>1 NR Drink</li><li>1 Reg. Fries</li></ul></div></div>
+                <a href="https://wa.me/923308493333?text=I%20want%20to%20order%20Hot%20Deal%203" target="_blank" class="order-btn"><i class="fab fa-whatsapp"></i> Order on WhatsApp</a>
+            </div>
+            <div class="card">
+                <div><div class="card-header"><span class="deal-id">DEAL 4</span><span class="deal-price">Rs. 1,690</span></div><div class="card-body"><ul><li>1 Large Pizza</li><li>1 1-Liter Drink</li></ul></div></div>
+                <a href="https://wa.me/923308493333?text=I%20want%20to%20order%20Hot%20Deal%204" target="_blank" class="order-btn"><i class="fab fa-whatsapp"></i> Order on WhatsApp</a>
+            </div>
+            <div class="card">
+                <div><div class="card-header"><span class="deal-id">DEAL 5</span><span class="deal-price">Rs. 1,790</span></div><div class="card-body"><ul><li>1 Medium Pizza + 1 Regular Pizza</li><li>1 1.5 Liter Drink</li></ul></div></div>
+                <a href="https://wa.me/923308493333?text=I%20want%20to%20order%20Hot%20Deal%205" target="_blank" class="order-btn"><i class="fab fa-whatsapp"></i> Order on WhatsApp</a>
+            </div>
+            <div class="card">
+                <div><div class="card-header"><span class="deal-id">DEAL 6</span><span class="deal-price">Rs. 600</span></div><div class="card-body"><ul><li>10 Pcs Crispy Wings</li></ul></div></div>
+                <a href="https://wa.me/923308493333?text=I%20want%20to%20order%20Hot%20Deal%206" target="_blank" class="order-btn"><i class="fab fa-whatsapp"></i> Order on WhatsApp</a>
+            </div>
+            <div class="card">
+                <div><div class="card-header"><span class="deal-id">DEAL 7</span><span class="deal-price">Rs. 600</span></div><div class="card-body"><ul><li>10 Pcs Chicken Hot Shot</li></ul></div></div>
+                <a href="https://wa.me/923308493333?text=I%20want%20to%20order%20Hot%20Deal%207" target="_blank" class="order-btn"><i class="fab fa-whatsapp"></i> Order on WhatsApp</a>
+            </div>
+            <div class="card">
+                <div><div class="card-header"><span class="deal-id">DEAL 8</span><span class="deal-price">Rs. 600</span></div><div class="card-body"><ul><li>10 Pcs Nuggets</li><li>1 Reg. Fries</li></ul></div></div>
+                <a href="https://wa.me/923308493333?text=I%20want%20to%20order%20Hot%20Deal%208" target="_blank" class="order-btn"><i class="fab fa-whatsapp"></i> Order on WhatsApp</a>
+            </div>
+            <div class="card">
+                <div><div class="card-header"><span class="deal-id">DEAL 9</span><span class="deal-price">Rs. 1,000</span></div><div class="card-body"><ul><li>2 Arabian Breast</li><li>1 Half Liter Drink</li></ul></div></div>
+                <a href="https://wa.me/923308493333?text=I%20want%20to%20order%20Hot%20Deal%209" target="_blank" class="order-btn"><i class="fab fa-whatsapp"></i> Order on WhatsApp</a>
+            </div>
+            <div class="card">
+                <div><div class="card-header"><span class="deal-id">DEAL 10</span><span class="deal-price">Rs. 700</span></div><div class="card-body"><ul><li>1 Paratha Roll + 1 Chicken Shawarma</li><li>1 Half Liter Drink + 1 Reg. Fries</li></ul></div></div>
+                <a href="https://wa.me/923308493333?text=I%20want%20to%20order%20Hot%20Deal%2010" target="_blank" class="order-btn"><i class="fab fa-whatsapp"></i> Order on WhatsApp</a>
+            </div>
+            <div class="card">
+                <div><div class="card-header"><span class="deal-id">DEAL 11</span><span class="deal-price">Rs. 1,390</span></div><div class="card-body"><ul><li>1 Medium Pizza</li><li>1 Half Liter Drink</li></ul></div></div>
+                <a href="https://wa.me/923308493333?text=I%20want%20to%20order%20Hot%20Deal%2011" target="_blank" class="order-btn"><i class="fab fa-whatsapp"></i> Order on WhatsApp</a>
+            </div>
+            <div class="card">
+                <div><div class="card-header"><span class="deal-id">DEAL 12</span><span class="deal-price">Rs. 700</span></div><div class="card-body"><ul><li>1 Small Pizza</li><li>1 NR Drink</li></ul></div></div>
+                <a href="https://wa.me/923308493333?text=I%20want%20to%20order%20Hot%20Deal%2012" target="_blank" class="order-btn"><i class="fab fa-whatsapp"></i> Order on WhatsApp</a>
+            </div>
+            <div class="card">
+                <div><div class="card-header"><span class="deal-id">DEAL 13</span><span class="deal-price">Rs. 1,750</span></div><div class="card-body"><ul><li>5 Zinger Burgers</li><li>1 Liter Drink</li></ul></div></div>
+                <a href="https://wa.me/923308493333?text=I%20want%20to%20order%20Hot%20Deal%2013" target="_blank" class="order-btn"><i class="fab fa-whatsapp"></i> Order on WhatsApp</a>
+            </div>
+            <div class="card">
+                <div><div class="card-header"><span class="deal-id">DEAL 14</span><span class="deal-price">Rs. 1,790</span></div><div class="card-body"><ul><li>1 Doner Large Pizza</li><li>1 Liter Drink</li></ul></div></div>
+                <a href="https://wa.me/923308493333?text=I%20want%20to%20order%20Hot%20Deal%2014" target="_blank" class="order-btn"><i class="fab fa-whatsapp"></i> Order on WhatsApp</a>
+            </div>
+            <div class="card">
+                <div><div class="card-header"><span class="deal-id">DEAL 15</span><span class="deal-price">Rs. 790</span></div><div class="card-body"><ul><li>1 Large Pasta</li><li>1 Liter Drink</li></ul></div></div>
+                <a href="https://wa.me/923308493333?text=I%20want%20to%20order%20Hot%20Deal%2015" target="_blank" class="order-btn"><i class="fab fa-whatsapp"></i> Order on WhatsApp</a>
+            </div>
+            <div class="card">
+                <div><div class="card-header"><span class="deal-id">DEAL 16</span><span class="deal-price">Rs. 1,050</span></div><div class="card-body"><ul><li>3 Zinger Burgers</li><li>1 Half Liter Drink</li></ul></div></div>
+                <a href="https://wa.me/923308493333?text=I%20want%20to%20order%20Hot%20Deal%2016" target="_blank" class="order-btn"><i class="fab fa-whatsapp"></i> Order on WhatsApp</a>
+            </div>
+        </div>
+
+        <div id="regular-pizza" class="menu-grid">
+            <div class="table-container">
+                <div class="info-box">🍕 Regular Pizza Prices: Small: 1080 | Medium: 2080 | Large: 2680</div>
+                <table class="pizza-table">
+                    <thead>
+                        <tr><th>Code</th><th>Flavor Name</th><th>Action</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>01</td><td>Chicken Tikka Pizza</td><td><a class="inline-order-btn" href="https://wa.me/923308493333?text=Order:%20Chicken%20Tikka%20Pizza"><i class="fab fa-whatsapp"></i> Order</a></td></tr>
+                        <tr><td>02</td><td>Chicken Fajita</td><td><a class="inline-order-btn" href="https://wa.me/923308493333?text=Order:%20Chicken%20Fajita"><i class="fab fa-whatsapp"></i> Order</a></td></tr>
+                        <tr><td>03</td><td>Chicken Supreme</td><td><a class="inline-order-btn" href="https://wa.me/923308493333?text=Order:%20Chicken%20Supreme"><i class="fab fa-whatsapp"></i> Order</a></td></tr>
+                        <tr><td>04</td><td>Hot & Spicy</td><td><a class="inline-order-btn" href="https://wa.me/923308493333?text=Order:%20Hot%20Spicy"><i class="fab fa-whatsapp"></i> Order</a></td></tr>
+                        <tr><td>05</td><td>Tenderi Pizza</td><td><a class="inline-order-btn" href="https://wa.me/923308493333?text=Order:%20Tenderi"><i class="fab fa-whatsapp"></i> Order</a></td></tr>
+                        <tr><td>06</td><td>Chicken Lover Pizza</td><td><a class="inline-order-btn" href="https://wa.me/923308493333?text=Order:%20Chicken%20Lover"><i class="fab fa-whatsapp"></i> Order</a></td></tr>
+                        <tr><td>07</td><td>Cheese Lover Pizza</td><td><a class="inline-order-btn" href="https://wa.me/923308493333?text=Order:%20Cheese%20Lover"><i class="fab fa-whatsapp"></i> Order</a></td></tr>
+                        <tr><td>08</td><td>Chicken Cheese Lover</td><td><a class="inline-order-btn" href="https://wa.me/923308493333?text=Order:%20Chicken%20Cheese%20Lover"><i class="fab fa-whatsapp"></i> Order</a></td></tr>
+                        <tr><td>09</td><td>Chicken Chili Pizza</td><td><a class="inline-order-btn" href="https://wa.me/923308493333?text=Order:%20Chicken%20Chili"><i class="fab fa-whatsapp"></i> Order</a></td></tr>
+                        <tr><td>10</td><td>Vegetable Pizza</td><td><a class="inline-order-btn" href="https://wa.me/923308493333?text=Order:%20Vegetable%20Pizza"><i class="fab fa-whatsapp"></i> Order</a></td></tr>
+                        <tr><td>11</td><td>Chicken Mushroom Pizza</td><td><a class="inline-order-btn" href="https://wa.me/923308493333?text=Order:%20Mushroom%20Pizza"><i class="fab fa-whatsapp"></i> Order</a></td></tr>
+                        <tr><td>12</td><td>Chicken Cheesy Pizza</td><td><a class="inline-order-btn" href="https://wa.me/923308493333?text=Order:%20Chicken%20Cheesy"><i class="fab fa-whatsapp"></i> Order</a></td></tr>
+                        <tr><td>13</td><td>Achari Pizza</td><td><a class="inline-order-btn" href="https://wa.me/923308493333?text=Order:%20Achari%20Pizza"><i class="fab fa-whatsapp"></i> Order</a></td></tr>
+                        <tr><td>14</td><td>Bar B Q Pizza</td><td><a class="inline-order-btn" href="https://wa.me/923308493333?text=Order:%20BBQ%20Pizza"><i class="fab fa-whatsapp"></i> Order</a></td></tr>
+                        <tr><td>15</td><td>Chili Bong Pizza</td><td><a class="inline-order-btn" href="https://wa.me/923308493333?text=Order:%20Chili%20Bong"><i class="fab fa-whatsapp"></i> Order</a></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="special-pizza" class="menu-grid">
+            <div class="table-container">
+                <div class="info-box">👑 Special Pizza Prices: Small: 1180 | Medium: 2280 | Large: 2880 <br>⭐ Extra Topping: S: 150 | M: 200 | L: 250</div>
+                <table class="pizza-table">
+                    <thead><tr><th>Code</th><th>Special Flavor Name</th></tr></thead>
+                    <tbody>
+                        <tr><td>16</td><td>The Pizza Hut Special</td></tr>
+                        <tr><td>17</td><td>Chicken Bihari Kabab Pizza</td></tr>
+                        <tr><td>18</td><td>Kebab Crust Pizza</td></tr>
+                        <tr><td>19</td><td>Cheese Stuffed Pizza</td></tr>
+                        <tr><td>20</td><td>Chicken Malai Boti Pizza</td></tr>
+                        <tr><td>21</td><td>Turkish Crust Pizza</td></tr>
+                        <tr><td>22</td><td>Heart Broken Pizza</td></tr>
+                        <tr><td>23</td><td>Square Pizza</td></tr>
+                        <tr><td>24</td><td>Crunchy Pizza</td></tr>
+                        <tr><td>25</td><td>Peri Peri Pizza</td></tr>
+                        <tr><td>26</td><td>Butter Lasania</td></tr>
+                        <tr><td>27</td><td>Chicken Crust Pizza</td></tr>
+                        <tr><td>28</td><td>Nuggets Pizza</td></tr>
+                        <tr><td>29</td><td>Shahi Nawabi Pizza</td></tr>
+                        <tr><td>30</td><td>Bon Fire Pizza</td></tr>
+                        <tr><td>31</td><td>Pepperoni Pizza</td></tr>
+                        <tr><td>32</td><td>Grill Pizza</td></tr>
+                    </tbody>
+                </table>
+
+                <h3 style="margin: 25px 0 10px 0; color: var(--gold); font-family: 'Bebas Neue'; font-size: 1.5rem;">🥙 Doner Pizza Special Flavor (Medium: 2480 | Large: 3080)</h3>
+                <table class="pizza-table">
+                    <tbody>
+                        <tr><td>33</td><td>Doner Pizza Special (Cheese Or Meat)</td></tr>
+                        <tr><td>34</td><td>Doner Malai Boti Pizza</td></tr>
+                        <tr><td>35</td><td>Doner Vegetable Pizza</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="burgers" class="menu-grid">
+            <div class="info-box" style="grid-column: 1/-1;">🎁 Buy 1 Get 1 Free Only For Members (Single Burgers Only)</div>
+            <div class="card"><div><div class="card-header"><span>01. Zinger Burger</span><span class="deal-price">Rs. 600</span></div></div><a href="https://wa.me/923308493333?text=Order:%20Zinger%20Burger" class="order-btn">Order</a></div>
+            <div class="card"><div><div class="card-header"><span>02. Zinger Cheesy Burger</span><span class="deal-price">Rs. 680</span></div></div><a href="#" class="order-btn">Order</a></div>
+            <div class="card"><div><div class="card-header"><span>03. Chicken Burger</span><span class="deal-price">Rs. 560</span></div></div><a href="#" class="order-btn">Order</a></div>
+            <div class="card"><div><div class="card-header"><span>04. Chicken Cheesy Burger</span><span class="deal-price">Rs. 620</span></div></div><a href="#" class="order-btn">Order</a></div>
+            <div class="card"><div><div class="card-header"><span>05. Chicken Chapli Kabab Burger</span><span class="deal-price">Rs. 580</span></div></div><a href="#" class="order-btn">Order</a></div>
+            <div class="card"><div><div class="card-header"><span>06. Chicken Cheesy Paratha Roll</span><span class="deal-price">Rs. 660</span></div></div><a href="#" class="order-btn">Order</a></div>
+            <div class="card"><div><div class="card-header"><span>07. Chicken Chapli Kabab Cheesy</span><span class="deal-price">Rs. 560</span></div></div><a href="#" class="order-btn">Order</a></div>
+            
+            <div style="grid-column: 1/-1; margin-top: 20px;"><h3 style="color: var(--gold); font-family: 'Bebas Neue'; font-size: 1.5rem;">🍔 Double Burgers (No Discount)</h3></div>
+            <div class="card"><div><div class="card-header"><span>01. Double Zinger Cheesy Burger</span><span class="deal-price">Rs. 620</span></div></div><a href="#" class="order-btn">Order</a></div>
+            <div class="card"><div><div class="card-header"><span>02. Double Stacker Cheesy Burger</span><span class="deal-price">Rs. 620</span></div></div><a href="#" class="order-btn">Order</a></div>
+            <div class="card"><div><div class="card-header"><span>03. Double Decker Cheesy Burger</span><span class="deal-price">Rs. 620</span></div></div><a href="#" class="order-btn">Order</a></div>
+        </div>
+
+        <div id="sides" class="menu-grid">
+            <div style="grid-column: 1/-1;"><h3 style="color: var(--gold); font-family: 'Bebas Neue'; font-size: 1.5rem;">🌯 Paratha Rolls (Buy 1 Get 1 Free)</h3></div>
+            <div class="card"><div><div class="card-header"><span>08. Chicken Paratha Roll</span><span class="deal-price">Rs. 460</span></div></div><a href="#" class="order-btn">Order</a></div>
+            <div class="card"><div><div class="card-header"><span>09. Zinger Paratha Roll</span><span class="deal-price">Rs. 460</span></div></div><a href="#" class="order-btn">Order</a></div>
+            <div class="card"><div><div class="card-header"><span>10. Spicy Paratha Roll</span><span class="deal-price">Rs. 460</span></div></div><a href="#" class="order-btn">Order</a></div>
+            
+            <div style="grid-column: 1/-1; margin-top: 20px;"><h3 style="color: var(--gold); font-family: 'Bebas Neue'; font-size: 1.5rem;">🥙 Shawarma (Buy 1 Get 1 Free)</h3></div>
+            <div class="card"><div><div class="card-header"><span>17. Chicken Shawarma</span><span class="deal-price">Rs. 420</span></div></div><a href="#" class="order-btn">Order</a></div>
+            <div class="card"><div><div class="card-header"><span>18. Zinger Shawarma</span><span class="deal-price">Rs. 440</span></div></div><a href="#" class="order-btn">Order</a></div>
+            <div class="card"><div><div class="card-header"><span>20. Chicken Cheesy Shawarma</span><span class="deal-price">Rs. 480</span></div></div><a href="#" class="order-btn">Order</a></div>
+
+            <div style="grid-column: 1/-1; margin-top: 20px;"><h3 style="color: var(--gold); font-family: 'Bebas Neue'; font-size: 1.5rem;">🍟 Fries & Grill (No Discount)</h3></div>
+            <div class="card"><div><div class="card-header"><span>1. Plain Fries</span><span class="deal-price">Rs. 300</span></div></div><a href="#" class="order-btn">Order</a></div>
+            <div class="card"><div><div class="card-header"><span>2. Loaded Fries</span><span class="deal-price">Rs. 450</span></div></div><a href="#" class="order-btn">Order</a></div>
+            <div class="card"><div><div class="card-header"><span>01. Grill Burger</span><span class="deal-price">Rs. 600</span></div></div><a href="#" class="order-btn">Order</a></div>
+            <div class="card"><div><div class="card-header"><span>02. White Paper Broast</span><span class="deal-price">Rs. 620</span></div></div><a href="#" class="order-btn">Order</a></div>
+        </div>
+
     </div>
-  </div>
-</section>
 
-<!-- FOOTER -->
-<footer>
-  <div class="footer-logo">The Pizza Hut</div>
-  <p>Bypass 33 Morr, Kot Chutta · +92 330 849 3333</p>
-  <p style="margin-top:0.5rem;">© 2026 The Pizza Hut, Kot Chutta. All rights reserved.</p>
-</footer>
+    <footer>
+        <div class="footer-logo">The Pizza Hut Kot Chutta</div>
+        <p>📍 Bypass, 33 Morr, Kot Chutta, Pakistan</p>
+        <p>📞 Call Us: 0330-8493333 | 0310-8493333</p>
+        <p style="color: var(--gold);">⏰ Timing: 10:00 AM To 1:00 AM</p>
+    </footer>
 
-<script>
-  // Floating embers
-  const hero = document.querySelector('.hero');
-  for (let i = 0; i < 18; i++) {
-    const e = document.createElement('div');
-    e.classList.add('ember');
-    const size = Math.random() * 4 + 2;
-    e.style.cssText = `
-      width:${size}px;height:${size}px;
-      left:${Math.random()*100}%;
-      bottom:${Math.random()*20}%;
-      background:${Math.random()>0.5?'#FF6B35':'#C8102E'};
-      animation-duration:${Math.random()*6+5}s;
-      animation-delay:${Math.random()*6}s;
-      box-shadow: 0 0 ${size*2}px ${Math.random()>0.5?'#FF6B35':'#C8102E'};
-    `;
-    hero.appendChild(e);
-  }
-
-  // Menu tabs
-  const tabs = document.querySelectorAll('.tab');
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      tabs.forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
-    });
-  });
-
-  // Scroll reveal
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.style.opacity = '1';
-        e.target.style.transform = 'translateY(0)';
-      }
-    });
-  }, { threshold: 0.1 });
-
-  document.querySelectorAll('.menu-item, .review-card, .stat-card').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(20px)';
-    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-    observer.observe(el);
-  });
-</script>
+    <script>
+        function openCategory(categoryId) {
+            const grids = document.querySelectorAll('.menu-grid');
+            grids.forEach(grid => grid.classList.remove('active-grid'));
+            
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            
+            document.getElementById(categoryId).classList.add('active-grid');
+            event.currentTarget.classList.add('active');
+        }
+    </script>
 </body>
 </html>
