@@ -109,23 +109,21 @@
 
         .day-title { 
             background: linear-gradient(135deg, var(--orange), #FF7A00); color: white; padding: 8px 18px; border-radius: 30px; 
-            font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; margin: 30px 0 15px; display: inline-flex; align-items: center; gap: 8px;
+            font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; margin: 30px 0 15px; display: inline-flex; align-items: center; gap: 8px;
         }
 
         .section-title { font-family: 'Bebas Neue', sans-serif; font-size: 2.8rem; color: var(--red); margin: 25px 0 20px; position: relative; }
 
-        /* Modern Visual Card Styling */
         .menu-item {
-            background: var(--card-bg); border-radius: 20px; margin-bottom: 20px; box-shadow: 0 6px 18px rgba(15,9,5,0.05); 
-            border: 1px solid rgba(229,169,60,0.1); overflow: hidden; display: flex; flex-direction: column;
-            animation: slideUp 0.4s ease-out forwards;
+            background: var(--card-bg); border-radius: 20px; margin-bottom: 25px; box-shadow: 0 8px 24px rgba(15,9,5,0.06); 
+            border: 1px solid rgba(229,169,60,0.15); overflow: hidden; display: flex; flex-direction: column;
         }
 
         .item-image {
-            width: 100%; height: 220px; background-size: cover; background-position: center; position: relative;
+            width: 100%; height: 240px; background-size: cover; background-position: center; position: relative;
         }
 
-        .item-info { padding: 20px; }
+        .item-info { padding: 22px; }
         .item-header { display: flex; justify-content: space-between; align-items: center; font-weight: 700; font-size: 1.3rem; color: var(--dark); }
         
         .price { 
@@ -146,8 +144,6 @@
             background: linear-gradient(135deg, #25D366, #20BA5A); color: white; text-decoration: none; padding: 14px 30px; 
             border-radius: 35px; font-weight: 700; display: inline-flex; align-items: center; gap: 12px; width: 100%; max-width: 420px; justify-content: center; box-shadow: 0 6px 20px rgba(37,211,102,0.3); font-size: 1.1rem;
         }
-
-        @keyframes slideUp { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body>
@@ -159,26 +155,27 @@
     </header>
 
     <div class="tabs-container">
-        <button class="tab-btn active" onclick="openCat('daily')">📅 Daily Specials</button>
+        <button class="tab-btn active" onclick="openCat('daily')">📅 Hot Daily Deals</button>
         <button class="tab-btn" onclick="openCat('weekend')">🎉 Weekend Deals</button>
-        <button class="tab-btn" onclick="openCat('pizza')">🍕 Main Pizza</button>
+        <button class="tab-btn" onclick="openCat('pizza')">🍕 Main Pizza Menu</button>
         <button class="tab-btn" onclick="openCat('burgers')">🍔 Burgers, Rolls & Sides</button>
     </div>
 
     <div class="menu-container">
 
         <section id="daily" class="category-section active">
+            <h2 class="section-title">Today's Hot Deals</h2>
             
-            <div class="day-title"><i class="fas fa-moon"></i> Monday Deal</div>
+            <div class="day-title"><i class="fas fa-moon"></i> Monday Super Deal</div>
             <div class="menu-item">
                 <div class="item-image" style="background-image: url('https://images.unsplash.com/photo-1604917621956-10dfa7cce2e7?auto=format&fit=crop&w=600&q=80');"></div>
                 <div class="item-info">
-                    <div class="item-header"><span>Monday Super Deal</span><span class="price">Rs. 1,450</span></div>
+                    <div class="item-header"><span>Monday Deal</span><span class="price">Rs. 1,450</span></div>
                     <p class="details">1 Small Pizza + 2 Zinger Burgers + 4 Wings + Regular Fries + Half Ltr Cold Drink</p>
                 </div>
             </div>
 
-            <div class="day-title"><i class="fas fa-fire"></i> Tuesday Deal</div>
+            <div class="day-title"><i class="fas fa-fire"></i> Tuesday Deals</div>
             <div class="menu-item">
                 <div class="item-image" style="background-image: url('https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?auto=format&fit=crop&w=600&q=80');"></div>
                 <div class="item-info">
@@ -203,7 +200,7 @@
                 </div>
             </div>
 
-            <div class="day-title"><i class="fas fa-star"></i> Friday Deal</div>
+            <div class="day-title"><i class="fas fa-star"></i> Friday Deals</div>
             <div class="menu-item">
                 <div class="item-image" style="background-image: url('https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80');"></div>
                 <div class="item-info">
@@ -211,31 +208,66 @@
                     <p class="details">1 Large Pizza + 1 Zinger Burger + 1 Ltr Cold Drink</p>
                 </div>
             </div>
-
+            <div class="menu-item">
+                <div class="item-image" style="background-image: url('https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=600&q=80');"></div>
+                <div class="item-info">
+                    <div class="item-header"><span>Friday Family Offer</span><span class="price">Rs. 2,499</span></div>
+                    <p class="details">1 Large Pizza + 1 Medium Pizza + 1.5 Ltr Cold Drink</p>
+                </div>
+            </div>
         </section>
 
         <section id="weekend" class="category-section">
-            <h2 class="section-title">Weekend Offers</h2>
+            <h2 class="section-title">Special Weekend Deals</h2>
+            <div class="day-title"><i class="fas fa-laugh-beam"></i> Saturday & Sunday Offer</div>
             <div class="menu-item">
-                <div class="item-image" style="background-image: url('https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=600&q=80');"></div>
+                <div class="item-image" style="background-image: url('https://images.unsplash.com/photo-1585238342024-78d387f4a707?auto=format&fit=crop&w=600&q=80');"></div>
                 <div class="item-info">
                     <div class="item-header"><span>Weekend Mega Deal</span><span class="price">Rs. 1,970</span></div>
                     <p class="details">1 Large Pizza + 1 Chicken Shawarma Roll + 1 Chicken Paratha Roll + 1 Zinger Burger + Fries + 2 Dips</p>
+                </div>
+            </div>
+            <div class="menu-item">
+                <div class="item-image" style="background-image: url('https://images.unsplash.com/photo-1544982503-9f984c14501a?auto=format&fit=crop&w=600&q=80');"></div>
+                <div class="item-info">
+                    <div class="item-header"><span>Sunday Special Offer</span><span class="price">Rs. 1,490</span></div>
+                    <p class="details">1 Medium Pizza + 5 Hot Wings + 1 Reg Fries + 1 Ltr Cold Drink</p>
+                </div>
+            </div>
+            <div class="menu-item">
+                <div class="item-image" style="background-image: url('https://images.unsplash.com/photo-1628824851022-e446d7629c4b?auto=format&fit=crop&w=600&q=80');"></div>
+                <div class="item-info">
+                    <div class="item-header"><span>Special Weekend Mix</span><span class="price">Rs. 1,899</span></div>
+                    <p class="details">1 Medium Pizza + 1 Zinger Burger + 1 Arabian Bowl + 3 Wings + 500ml Drink</p>
                 </div>
             </div>
         </section>
 
         <section id="pizza" class="category-section">
             <h2 class="section-title">All Pizza Flavors</h2>
+            
             <div class="menu-item">
                 <div class="item-image" style="background-image: url('https://images.unsplash.com/photo-1534308983496-4fabb1a015ee?auto=format&fit=crop&w=600&q=80');"></div>
                 <div class="item-info">
-                    <div class="item-header"><span>Regular Flavors</span><span class="price">Rates</span></div>
-                    <p class="details">Chicken Tikka, Chicken Fajita, Chicken Supreme, Hot & Spicy, Achari Pizza, Bar B Q Pizza</p>
+                    <div class="item-header"><span>Regular Flavors</span><span class="price">Menu Rates</span></div>
+                    <p class="details">Chicken Tikka, Chicken Fajita, Chicken Supreme, Hot & Spicy, Tenderi Pizza, Chicken Lover, Cheese Lover, Chicken Chili, Vegetable Pizza, Achari Pizza, Bar B Q Pizza</p>
                     <div class="price-row">
                         <div class="price-badge">Small <span>Rs. 1,080</span></div>
                         <div class="price-badge">Medium <span>Rs. 2,080</span></div>
                         <div class="price-badge">Large <span>Rs. 2,680</span></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="menu-item">
+                <div class="item-image" style="background-image: url('https://images.unsplash.com/photo-1593560708920-61dd98c46a4e?auto=format&fit=crop&w=600&q=80');"></div>
+                <div class="item-info">
+                    <div class="item-header"><span>Special & Premium Flavors</span><span class="price">Menu Rates</span></div>
+                    <p class="details">Special Pizza, Mughlai Pizza, Malai Boti Pizza, Lasania Pizza, Creamy Max Pizza, Crown Crust Pizza, Doner Pizza, Kabab Stuffed Crust, Seekh Kabab Pizza</p>
+                    <div class="price-row">
+                        <div class="price-badge">Small <span>Rs. 1,180</span></div>
+                        <div class="price-badge">Medium <span>Rs. 2,180</span></div>
+                        <div class="price-badge">Large <span>Rs. 2,880</span></div>
                     </div>
                 </div>
             </div>
@@ -248,7 +280,7 @@
                 <div class="item-image" style="background-image: url('https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=600&q=80');"></div>
                 <div class="item-info">
                     <div class="item-header"><span>Arabian Broast</span><span class="price">Rs. 500</span></div>
-                    <p class="details">Crispy, golden fried juicy chicken broast served with special sauce.</p>
+                    <p class="details">Crispy, golden-fried juicy chicken broast served with special arabian dip.</p>
                 </div>
             </div>
 
@@ -256,7 +288,15 @@
                 <div class="item-image" style="background-image: url('https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80');"></div>
                 <div class="item-info">
                     <div class="item-header"><span>Zinger Burger</span><span class="price">Rs. 320</span></div>
-                    <p class="details">Crunchy chicken zinger fillet with fresh lettuce and premium mayo.</p>
+                    <p class="details">Crunchy chicken zinger fillet with fresh lettuce and sauce.</p>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="item-image" style="background-image: url('https://images.unsplash.com/photo-1534790566855-4cb788d389ec?auto=format&fit=crop&w=600&q=80');"></div>
+                <div class="item-info">
+                    <div class="item-header"><span>Zinger Cheese Burger</span><span class="price">Rs. 360</span></div>
+                    <p class="details">Crispy zinger fillet loaded with premium melted cheese slice.</p>
                 </div>
             </div>
 
@@ -264,7 +304,23 @@
                 <div class="item-image" style="background-image: url('https://images.unsplash.com/photo-1626700051175-6518c4793f4f?auto=format&fit=crop&w=600&q=80');"></div>
                 <div class="item-info">
                     <div class="item-header"><span>Chicken Paratha Roll</span><span class="price">Rs. 280</span></div>
-                    <p class="details">Grilled chicken boti wrapped in a crispy paratha with onions and chutney.</p>
+                    <p class="details">Juicy chicken pieces rolled in crispy paratha with chatni.</p>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="item-image" style="background-image: url('https://images.unsplash.com/photo-1642683054174-8b656b233a7f?auto=format&fit=crop&w=600&q=80');"></div>
+                <div class="item-info">
+                    <div class="item-header"><span>Chicken Shawarma</span><span class="price">Rs. 180</span></div>
+                    <p class="details">Perfectly grilled chicken pita wrap filled with fresh veggies and garlic mayo.</p>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="item-image" style="background-image: url('https://images.unsplash.com/photo-1529042410759-befb1204b468?auto=format&fit=crop&w=600&q=80');"></div>
+                <div class="item-info">
+                    <div class="item-header"><span>Chicken Cheese Shawarma</span><span class="price">Rs. 220</span></div>
+                    <p class="details">Classic chicken shawarma wrap with extra cheesy goodness.</p>
                 </div>
             </div>
 
@@ -272,7 +328,15 @@
                 <div class="item-image" style="background-image: url('https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=600&q=80');"></div>
                 <div class="item-info">
                     <div class="item-header"><span>French Fries (Regular)</span><span class="price">Rs. 130</span></div>
-                    <p class="details">Crispy golden potato fries lightly salted to perfection.</p>
+                    <p class="details">Golden salted crispy potato fries served hot.</p>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="item-image" style="background-image: url('https://images.unsplash.com/photo-1585109649139-366815a0d713?auto=format&fit=crop&w=600&q=80');"></div>
+                <div class="item-info">
+                    <div class="item-header"><span>Masala Fries (Regular)</span><span class="price">Rs. 150</span></div>
+                    <p class="details">Crispy fries tossed with a special spicy chatpatta masala.</p>
                 </div>
             </div>
         </section>
