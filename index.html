@@ -4,145 +4,154 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="HJ48lGJ9wLBUrpdBaLdSRD6WqzRzkBTMGLcAqIJd6Sc" />
-    <title>The Pizza Hut - Kot Chutta Daily Deals</title>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>The Pizza Hut - Premium Digital Menu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            --red: #D2122E;
-            --orange: #FF5A00;
-            --cream: #FFFBF5;
-            --dark: #0F0905;
-            --card-bg: #FFFFFF;
-            --gold: #E5A93C;
+            --primary: #D2122E;
+            --primary-dark: #A60F22;
+            --accent: #E5A93C;
+            --bg-dark: #0A0604;
+            --bg-card: #140E0B;
+            --text-light: #F5F2EE;
+            --text-muted: #A69E97;
             --whatsapp: #25D366;
-            --text-muted: #665E57;
         }
 
         * { 
             box-sizing: border-box; 
             margin: 0; 
             padding: 0; 
-            font-family: 'Poppins', sans-serif; 
+            font-family: 'Outfit', sans-serif; 
             -webkit-tap-highlight-color: transparent; 
         }
 
         body { 
-            background-color: var(--cream); 
-            color: var(--dark); 
+            background-color: var(--bg-dark); 
+            color: var(--text-light); 
             overflow-x: hidden; 
         }
 
         header {
-            background: linear-gradient(180deg, rgba(15,9,5,0.6) 0%, rgba(15,9,5,0.95) 100%), 
+            background: linear-gradient(180deg, rgba(10,6,4,0.4) 0%, rgba(10,6,4,0.95) 100%), 
                         url('https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=1200&q=80');
             background-size: cover; 
             background-position: center; 
             text-align: center; 
-            padding: 65px 20px 45px; 
-            color: white; 
+            padding: 80px 20px 50px; 
             position: relative;
         }
 
         header::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 6px;
-            background: linear-gradient(90deg, var(--red), var(--orange), var(--gold));
+            content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
         }
 
         .logo-font { 
             font-family: 'Bebas Neue', sans-serif; 
-            font-size: 4.5rem; 
-            letter-spacing: 2px; 
-            text-shadow: 4px 4px 0px var(--red); 
+            font-size: 5rem; 
+            letter-spacing: 3px; 
+            color: #FFFFFF;
+            text-shadow: 3px 3px 0px var(--primary); 
             line-height: 1;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
         }
 
         .tagline { 
             font-size: 1.1rem; 
-            color: var(--gold); 
+            color: var(--accent); 
             font-weight: 600; 
             text-transform: uppercase;
-            letter-spacing: 1.5px;
-            margin-bottom: 15px;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
         }
 
         .location-badge {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: white;
-            padding: 6px 16px;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #FFFFFF;
+            padding: 8px 20px;
             border-radius: 30px;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             font-weight: 500;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
 
         .tabs-container {
-            position: sticky; top: 0; background: var(--dark); padding: 14px 0; z-index: 100;
-            overflow-x: auto; white-space: nowrap; display: flex; scrollbar-width: none; box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            position: sticky; top: 0; background: rgba(10,6,4,0.9); backdrop-filter: blur(15px); padding: 16px 0; z-index: 100;
+            overflow-x: auto; white-space: nowrap; display: flex; scrollbar-width: none; border-bottom: 1px solid rgba(255,255,255,0.05);
         }
         .tabs-container::-webkit-scrollbar { display: none; }
 
         .tab-btn {
-            background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: #D1CFCB; 
+            background: transparent; border: 1px solid rgba(255,255,255,0.1); color: var(--text-muted); 
             padding: 10px 24px; cursor: pointer; font-weight: 600; font-size: 0.9rem; border-radius: 30px; transition: all 0.3s; margin: 0 6px;
         }
 
         .tab-btn.active { 
-            background: linear-gradient(135deg, var(--red), var(--orange)); color: white; border-color: transparent;
-            box-shadow: 0 6px 15px rgba(210,18,46,0.4); transform: scale(1.05);
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: white; border-color: transparent;
+            box-shadow: 0 6px 18px rgba(210,18,46,0.35); transform: scale(1.05);
         }
 
-        .menu-container { max-width: 700px; margin: auto; padding: 20px 16px 120px; }
+        .menu-container { max-width: 680px; margin: auto; padding: 25px 16px 140px; }
         .category-section { display: none; }
         .category-section.active { display: block; }
 
+        .section-title { font-family: 'Bebas Neue', sans-serif; font-size: 3rem; color: #FFFFFF; margin: 30px 0 20px; letter-spacing: 1px; display: flex; align-items: center; gap: 10px; }
+        .section-title::after { content: ''; flex: 1; height: 1px; background: rgba(255,255,255,0.1); }
+
         .day-title { 
-            background: linear-gradient(135deg, var(--orange), #FF7A00); color: white; padding: 8px 18px; border-radius: 30px; 
-            font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; margin: 30px 0 15px; display: inline-flex; align-items: center; gap: 8px;
+            background: rgba(229,169,60,0.1); border: 1px solid rgba(229,169,60,0.2); color: var(--accent); padding: 6px 16px; border-radius: 30px; 
+            font-size: 0.95rem; font-weight: 700; text-transform: uppercase; margin: 25px 0 15px; display: inline-flex; align-items: center; gap: 8px; letter-spacing: 1px;
         }
 
-        .section-title { font-family: 'Bebas Neue', sans-serif; font-size: 2.8rem; color: var(--red); margin: 25px 0 20px; position: relative; }
-
+        /* Luxury Restaurant Card Design */
         .menu-item {
-            background: var(--card-bg); border-radius: 20px; margin-bottom: 25px; box-shadow: 0 8px 24px rgba(15,9,5,0.06); 
-            border: 1px solid rgba(229,169,60,0.15); overflow: hidden; display: flex; flex-direction: column;
+            background: var(--bg-card); border-radius: 24px; margin-bottom: 25px; 
+            border: 1px solid rgba(255,255,255,0.03); overflow: hidden; display: flex; flex-direction: column;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.25); transition: transform 0.3s;
         }
 
         .item-image {
-            width: 100%; height: 240px; background-size: cover; background-position: center; position: relative;
+            width: 100%; height: 250px; background-size: cover; background-position: center;
         }
 
-        .item-info { padding: 22px; }
-        .item-header { display: flex; justify-content: space-between; align-items: center; font-weight: 700; font-size: 1.3rem; color: var(--dark); }
+        .item-info { padding: 24px; }
+        .item-header { display: flex; justify-content: space-between; align-items: center; font-weight: 700; font-size: 1.35rem; color: #FFFFFF; }
         
         .price { 
-            color: var(--red); white-space: nowrap; font-weight: 800; background: rgba(210,18,46,0.06);
-            padding: 6px 14px; border-radius: 12px; font-size: 1.2rem;
+            color: var(--accent); white-space: nowrap; font-weight: 800; background: rgba(229,169,60,0.08);
+            padding: 6px 16px; border-radius: 14px; font-size: 1.25rem; border: 1px solid rgba(229,169,60,0.15);
         }
 
-        .details { font-size: 0.95rem; color: var(--text-muted); margin-top: 8px; line-height: 1.5; }
+        .details { font-size: 0.95rem; color: var(--text-muted); margin-top: 10px; line-height: 1.6; font-weight: 400; }
 
-        .price-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; background: #FAF6F0; padding: 10px; border-radius: 12px; }
-        .price-badge { font-size: 0.85rem; font-weight: 600; background-color: white; padding: 8px 12px; border-radius: 8px; color: var(--dark); border: 1px solid #EAE5DD; flex: 1; text-align: center; }
-        .price-badge span { color: var(--red); font-weight: 700; }
+        .price-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px; background: rgba(0,0,0,0.2); padding: 12px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.03); }
+        .price-badge { font-size: 0.9rem; font-weight: 600; background-color: var(--bg-card); padding: 10px; border-radius: 10px; color: var(--text-light); border: 1px solid rgba(255,255,255,0.05); flex: 1; text-align: center; }
+        .price-badge span { color: var(--accent); font-weight: 700; display: block; font-size: 1.1rem; margin-top: 4px; }
 
-        .footer-note { text-align: center; padding: 20px; font-size: 0.85rem; color: #999; margin-top: 50px; }
+        /* Google Maps Section Design */
+        .map-section {
+            background: var(--bg-card); border-radius: 24px; padding: 24px; margin-top: 40px;
+            border: 1px solid rgba(255,255,255,0.03); box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+        }
+        .map-header { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; font-weight: 700; font-size: 1.2rem; color: #FFFFFF; }
+        .map-header i { color: var(--primary); font-size: 1.4rem; }
+        .map-container { width: 100%; height: 280px; border-radius: 16px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); }
+        .map-container iframe { width: 100%; height: 100%; border: 0; }
 
-        .order-bar { position: fixed; bottom: 0; left: 0; right: 0; background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); padding: 16px 20px; text-align: center; box-shadow: 0 -10px 25px rgba(0,0,0,0.05); z-index: 1000; }
+        .footer-note { text-align: center; padding: 30px 20px; font-size: 0.85rem; color: var(--text-muted); margin-top: 40px; border-top: 1px solid rgba(255,255,255,0.05); }
+
+        .order-bar { position: fixed; bottom: 0; left: 0; right: 0; background: linear-gradient(0deg, rgba(10,6,4,1) 70%, rgba(10,6,4,0) 100%); padding: 20px; text-align: center; z-index: 1000; }
         .whatsapp-btn { 
-            background: linear-gradient(135deg, #25D366, #20BA5A); color: white; text-decoration: none; padding: 14px 30px; 
-            border-radius: 35px; font-weight: 700; display: inline-flex; align-items: center; gap: 12px; width: 100%; max-width: 420px; justify-content: center; box-shadow: 0 6px 20px rgba(37,211,102,0.3); font-size: 1.1rem;
+            background: linear-gradient(135deg, #25D366, #1EBE55); color: white; text-decoration: none; padding: 16px 32px; 
+            border-radius: 35px; font-weight: 700; display: inline-flex; align-items: center; gap: 12px; width: 100%; max-width: 440px; justify-content: center; box-shadow: 0 8px 25px rgba(37,211,102,0.3); font-size: 1.1rem; transition: transform 0.2s;
         }
     </style>
 </head>
@@ -150,111 +159,104 @@
 
     <header>
         <h1 class="logo-font">THE PIZZA HUT</h1>
-        <p class="tagline">Delicious & Freshly Baked</p>
+        <p class="tagline">The Art of Fresh Baking</p>
         <span class="location-badge"><i class="fas fa-map-marker-alt"></i> Bypass 33 Morr, Kot Chutta</span>
     </header>
 
     <div class="tabs-container">
-        <button class="tab-btn active" onclick="openCat('daily')">📅 Hot Daily Deals</button>
-        <button class="tab-btn" onclick="openCat('weekend')">🎉 Weekend Deals</button>
-        <button class="tab-btn" onclick="openCat('pizza')">🍕 Main Pizza Menu</button>
-        <button class="tab-btn" onclick="openCat('burgers')">🍔 Burgers, Rolls & Sides</button>
+        <button class="tab-btn active" onclick="openCat('daily')">✨ Today's Hot Deals</button>
+        <button class="tab-btn" onclick="openCat('weekend')">👑 Weekend Exclusive</button>
+        <button class="tab-btn" onclick="openCat('pizza')">🍕 Pizza Masterclass</button>
+        <button class="tab-btn" onclick="openCat('burgers')">🍔 Burgers & Premium Sides</button>
     </div>
 
     <div class="menu-container">
 
         <section id="daily" class="category-section active">
-            <h2 class="section-title">Today's Hot Deals</h2>
+            <h2 class="section-title">Daily Signature Deals</h2>
             
-            <div class="day-title"><i class="fas fa-moon"></i> Monday Super Deal</div>
+            <div class="day-title"><i class="fas fa-moon"></i> Monday Premium Edition</div>
             <div class="menu-item">
                 <div class="item-image" style="background-image: url('https://images.unsplash.com/photo-1604917621956-10dfa7cce2e7?auto=format&fit=crop&w=600&q=80');"></div>
                 <div class="item-info">
-                    <div class="item-header"><span>Monday Deal</span><span class="price">Rs. 1,450</span></div>
-                    <p class="details">1 Small Pizza + 2 Zinger Burgers + 4 Wings + Regular Fries + Half Ltr Cold Drink</p>
+                    <div class="item-header"><span>Monday Super Deal</span><span class="price">Rs. 1,450</span></div>
+                    <p class="details">1 Premium Small Pizza + 2 Golden Crunchy Zinger Burgers + 4 Fire Wings + Crispy Regular Fries + Premium Half Ltr Beverage</p>
                 </div>
             </div>
 
-            <div class="day-title"><i class="fas fa-fire"></i> Tuesday Deals</div>
+            <div class="day-title"><i class="fas fa-fire"></i> Tuesday Double Feast</div>
             <div class="menu-item">
                 <div class="item-image" style="background-image: url('https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?auto=format&fit=crop&w=600&q=80');"></div>
                 <div class="item-info">
                     <div class="item-header"><span>Tuesday Special Deal</span><span class="price">Rs. 1,850</span></div>
-                    <p class="details">1 Medium Pizza + 5 Wings + 5 Nuggets + 1.5 Ltr Drink + Fries + Deep Sauce</p>
+                    <p class="details">1 Deluxe Medium Pizza + 5 Hot Buffalo Wings + 5 Crunchy Breast Nuggets + Jumbo 1.5 Ltr Drink + Basket Fries + Secret Deep Sauce</p>
                 </div>
             </div>
             <div class="menu-item">
                 <div class="item-image" style="background-image: url('https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=600&q=80');"></div>
                 <div class="item-info">
-                    <div class="item-header"><span>Tuesday Arabian Deal</span><span class="price">Rs. 1,399</span></div>
-                    <p class="details">Arabian Breast + 10 Pcs Wings + Reg Fries + 1 Ltr Bottle + 5 Naan</p>
+                    <div class="item-header"><span>Tuesday Arabian Feast</span><span class="price">Rs. 1,399</span></div>
+                    <p class="details">Authentic Juicy Arabian Breast Broast + 10 Signature Wings + Family Fries + 1 Ltr Cold Drink + 5 Fresh Soft Naan</p>
                 </div>
             </div>
 
-            <div class="day-title"><i class="fas fa-pizza-slice"></i> Wednesday Deal</div>
+            <div class="day-title"><i class="fas fa-pizza-slice"></i> Wednesday Fusion</div>
             <div class="menu-item">
                 <div class="item-image" style="background-image: url('https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=600&q=80');"></div>
                 <div class="item-info">
                     <div class="item-header"><span>Wednesday Mix Deal</span><span class="price">Rs. 1,780</span></div>
-                    <p class="details">1 Medium Pizza + 1 Arabian Roll + 4 Wings + 4 Nuggets + Reg Fries</p>
+                    <p class="details">1 Artisan Medium Pizza + 1 Signature Arabian Roll + 4 Crispy Wings + 4 Savory Nuggets + Large Fries Bowl</p>
                 </div>
             </div>
 
-            <div class="day-title"><i class="fas fa-star"></i> Friday Deals</div>
+            <div class="day-title"><i class="fas fa-star"></i> Friday Grand Club</div>
             <div class="menu-item">
                 <div class="item-image" style="background-image: url('https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80');"></div>
                 <div class="item-info">
                     <div class="item-header"><span>Friday Hot Deal</span><span class="price">Rs. 1,699</span></div>
-                    <p class="details">1 Large Pizza + 1 Zinger Burger + 1 Ltr Cold Drink</p>
+                    <p class="details">1 Ultimate Large Pizza + 1 Classic Crunchy Zinger Burger + 1 Ltr Ice Cold Drink</p>
                 </div>
             </div>
             <div class="menu-item">
                 <div class="item-image" style="background-image: url('https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=600&q=80');"></div>
                 <div class="item-info">
-                    <div class="item-header"><span>Friday Family Offer</span><span class="price">Rs. 2,499</span></div>
-                    <p class="details">1 Large Pizza + 1 Medium Pizza + 1.5 Ltr Cold Drink</p>
+                    <div class="item-header"><span>Friday Family Celebration</span><span class="price">Rs. 2,499</span></div>
+                    <p class="details">Double Pizza Bonanza: 1 Ultimate Large Pizza + 1 Artisan Medium Pizza + 1.5 Ltr Cold Drink Pack</p>
                 </div>
             </div>
         </section>
 
         <section id="weekend" class="category-section">
-            <h2 class="section-title">Special Weekend Deals</h2>
-            <div class="day-title"><i class="fas fa-laugh-beam"></i> Saturday & Sunday Offer</div>
+            <h2 class="section-title">Weekend Masterpieces</h2>
+            <div class="day-title"><i class="fas fa-crown"></i> Saturday & Sunday Only</div>
             <div class="menu-item">
                 <div class="item-image" style="background-image: url('https://images.unsplash.com/photo-1585238342024-78d387f4a707?auto=format&fit=crop&w=600&q=80');"></div>
                 <div class="item-info">
                     <div class="item-header"><span>Weekend Mega Deal</span><span class="price">Rs. 1,970</span></div>
-                    <p class="details">1 Large Pizza + 1 Chicken Shawarma Roll + 1 Chicken Paratha Roll + 1 Zinger Burger + Fries + 2 Dips</p>
+                    <p class="details">The Ultimate Feast: 1 Large Pizza + 1 Flame-Grilled Chicken Shawarma Roll + 1 Flaky Chicken Paratha Roll + 1 Classic Zinger Burger + Jumbo Fries Bowl + 2 Signature Dipping Sauces</p>
                 </div>
             </div>
             <div class="menu-item">
                 <div class="item-image" style="background-image: url('https://images.unsplash.com/photo-1544982503-9f984c14501a?auto=format&fit=crop&w=600&q=80');"></div>
                 <div class="item-info">
-                    <div class="item-header"><span>Sunday Special Offer</span><span class="price">Rs. 1,490</span></div>
-                    <p class="details">1 Medium Pizza + 5 Hot Wings + 1 Reg Fries + 1 Ltr Cold Drink</p>
-                </div>
-            </div>
-            <div class="menu-item">
-                <div class="item-image" style="background-image: url('https://images.unsplash.com/photo-1628824851022-e446d7629c4b?auto=format&fit=crop&w=600&q=80');"></div>
-                <div class="item-info">
-                    <div class="item-header"><span>Special Weekend Mix</span><span class="price">Rs. 1,899</span></div>
-                    <p class="details">1 Medium Pizza + 1 Zinger Burger + 1 Arabian Bowl + 3 Wings + 500ml Drink</p>
+                    <div class="item-header"><span>Sunday Luxury Offer</span><span class="price">Rs. 1,490</span></div>
+                    <p class="details">1 Medium Pizza + 5 Golden Hot Wings + 1 Regular Salted Fries + 1 Ltr Cold Drink</p>
                 </div>
             </div>
         </section>
 
         <section id="pizza" class="category-section">
-            <h2 class="section-title">All Pizza Flavors</h2>
+            <h2 class="section-title">Artisan Pizza Selection</h2>
             
             <div class="menu-item">
                 <div class="item-image" style="background-image: url('https://images.unsplash.com/photo-1534308983496-4fabb1a015ee?auto=format&fit=crop&w=600&q=80');"></div>
                 <div class="item-info">
-                    <div class="item-header"><span>Regular Flavors</span><span class="price">Menu Rates</span></div>
-                    <p class="details">Chicken Tikka, Chicken Fajita, Chicken Supreme, Hot & Spicy, Tenderi Pizza, Chicken Lover, Cheese Lover, Chicken Chili, Vegetable Pizza, Achari Pizza, Bar B Q Pizza</p>
+                    <div class="item-header"><span>Traditional Regular Flavors</span><span class="price">Menu Collection</span></div>
+                    <p class="details">Baked to perfection using premium mozzarella cheese. Flavors: Chicken Tikka, Chicken Fajita, Chicken Supreme, Hot & Spicy, Tenderi Pizza, Chicken Lover, Cheese Lover, Chicken Chili, Fresh Vegetable, Spicy Achari, Smokey Bar-B-Q.</p>
                     <div class="price-row">
-                        <div class="price-badge">Small <span>Rs. 1,080</span></div>
-                        <div class="price-badge">Medium <span>Rs. 2,080</span></div>
-                        <div class="price-badge">Large <span>Rs. 2,680</span></div>
+                        <div class="price-badge">Small Size <span>Rs. 1,080</span></div>
+                        <div class="price-badge">Medium Size <span>Rs. 2,080</span></div>
+                        <div class="price-badge">Large Size <span>Rs. 2,680</span></div>
                     </div>
                 </div>
             </div>
@@ -262,12 +264,12 @@
             <div class="menu-item">
                 <div class="item-image" style="background-image: url('https://images.unsplash.com/photo-1593560708920-61dd98c46a4e?auto=format&fit=crop&w=600&q=80');"></div>
                 <div class="item-info">
-                    <div class="item-header"><span>Special & Premium Flavors</span><span class="price">Menu Rates</span></div>
-                    <p class="details">Special Pizza, Mughlai Pizza, Malai Boti Pizza, Lasania Pizza, Creamy Max Pizza, Crown Crust Pizza, Doner Pizza, Kabab Stuffed Crust, Seekh Kabab Pizza</p>
+                    <div class="item-header"><span>Chef's Special & Premium Flavors</span><span class="price">Gourmet Selection</span></div>
+                    <p class="details">Our highest tier pizzas with stuffed crusts and rich rich toppings. Flavors: House Special, Royal Mughlai, Creamy Malai Boti, Rich Lasania, Creamy Max, Majesty Crown Crust, Turkish Doner, Kabab Stuffed Crust, Traditional Seekh Kabab Pizza.</p>
                     <div class="price-row">
-                        <div class="price-badge">Small <span>Rs. 1,180</span></div>
-                        <div class="price-badge">Medium <span>Rs. 2,180</span></div>
-                        <div class="price-badge">Large <span>Rs. 2,880</span></div>
+                        <div class="price-badge">Small Size <span>Rs. 1,180</span></div>
+                        <div class="price-badge">Medium Size <span>Rs. 2,180</span></div>
+                        <div class="price-badge">Large Size <span>Rs. 2,880</span></div>
                     </div>
                 </div>
             </div>
@@ -279,75 +281,85 @@
             <div class="menu-item">
                 <div class="item-image" style="background-image: url('https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=600&q=80');"></div>
                 <div class="item-info">
-                    <div class="item-header"><span>Arabian Broast</span><span class="price">Rs. 500</span></div>
-                    <p class="details">Crispy, golden-fried juicy chicken broast served with special arabian dip.</p>
+                    <div class="item-header"><span>Arabian Broast (Signature)</span><span class="price">Rs. 500</span></div>
+                    <p class="details">Juicy on the inside, ultra-crispy on the outside. Served with a premium Arabian garlic emulsion.</p>
                 </div>
             </div>
 
             <div class="menu-item">
                 <div class="item-image" style="background-image: url('https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80');"></div>
                 <div class="item-info">
-                    <div class="item-header"><span>Zinger Burger</span><span class="price">Rs. 320</span></div>
-                    <p class="details">Crunchy chicken zinger fillet with fresh lettuce and sauce.</p>
+                    <div class="item-header"><span>Classic Zinger Burger</span><span class="price">Rs. 320</span></div>
+                    <p class="details">Hand-breaded crunchy chicken fillet, fresh shredded iceberg lettuce, and high-quality gourmet mayonnaise.</p>
                 </div>
             </div>
 
             <div class="menu-item">
                 <div class="item-image" style="background-image: url('https://images.unsplash.com/photo-1534790566855-4cb788d389ec?auto=format&fit=crop&w=600&q=80');"></div>
                 <div class="item-info">
-                    <div class="item-header"><span>Zinger Cheese Burger</span><span class="price">Rs. 360</span></div>
-                    <p class="details">Crispy zinger fillet loaded with premium melted cheese slice.</p>
+                    <div class="item-header"><span>Double Zinger Cheese Burger</span><span class="price">Rs. 360</span></div>
+                    <p class="details">Crispy golden zinger chicken fillet topped with a rich layer of melted cheddar cheese slice.</p>
                 </div>
             </div>
 
             <div class="menu-item">
                 <div class="item-image" style="background-image: url('https://images.unsplash.com/photo-1626700051175-6518c4793f4f?auto=format&fit=crop&w=600&q=80');"></div>
                 <div class="item-info">
-                    <div class="item-header"><span>Chicken Paratha Roll</span><span class="price">Rs. 280</span></div>
-                    <p class="details">Juicy chicken pieces rolled in crispy paratha with chatni.</p>
+                    <div class="item-header"><span>Charcoal Chicken Paratha Roll</span><span class="price">Rs. 280</span></div>
+                    <p class="details">Tender, charcoal-grilled chicken tikka chunks wrapped inside a flaky, golden layered paratha with mint yogurt sauce.</p>
                 </div>
             </div>
 
             <div class="menu-item">
                 <div class="item-image" style="background-image: url('https://images.unsplash.com/photo-1642683054174-8b656b233a7f?auto=format&fit=crop&w=600&q=80');"></div>
                 <div class="item-info">
-                    <div class="item-header"><span>Chicken Shawarma</span><span class="price">Rs. 180</span></div>
-                    <p class="details">Perfectly grilled chicken pita wrap filled with fresh veggies and garlic mayo.</p>
+                    <div class="item-header"><span>Gourmet Chicken Shawarma</span><span class="price">Rs. 180</span></div>
+                    <p class="details">Slow-roasted shaved chicken wrap loaded with authentic Mediterranean pickles and garlic sauce wrapper.</p>
                 </div>
             </div>
 
             <div class="menu-item">
                 <div class="item-image" style="background-image: url('https://images.unsplash.com/photo-1529042410759-befb1204b468?auto=format&fit=crop&w=600&q=80');"></div>
                 <div class="item-info">
-                    <div class="item-header"><span>Chicken Cheese Shawarma</span><span class="price">Rs. 220</span></div>
-                    <p class="details">Classic chicken shawarma wrap with extra cheesy goodness.</p>
+                    <div class="item-header"><span>Cheesy Chicken Shawarma</span><span class="price">Rs. 220</span></div>
+                    <p class="details">Our signature chicken pita shawarma loaded with gooey, premium melted mozzarella cheese.</p>
                 </div>
             </div>
 
             <div class="menu-item">
                 <div class="item-image" style="background-image: url('https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=600&q=80');"></div>
                 <div class="item-info">
-                    <div class="item-header"><span>French Fries (Regular)</span><span class="price">Rs. 130</span></div>
-                    <p class="details">Golden salted crispy potato fries served hot.</p>
+                    <div class="item-header"><span>Classic French Fries</span><span class="price">Rs. 130</span></div>
+                    <p class="details">Lightly salted, straight-cut classic premium potato fries cooked to a golden crunch.</p>
                 </div>
             </div>
 
             <div class="menu-item">
                 <div class="item-image" style="background-image: url('https://images.unsplash.com/photo-1585109649139-366815a0d713?auto=format&fit=crop&w=600&q=80');"></div>
                 <div class="item-info">
-                    <div class="item-header"><span>Masala Fries (Regular)</span><span class="price">Rs. 150</span></div>
-                    <p class="details">Crispy fries tossed with a special spicy chatpatta masala.</p>
+                    <div class="item-header"><span>Gourmet Peri-Peri Masala Fries</span><span class="price">Rs. 150</span></div>
+                    <p class="details">Golden french fries tossed in an aromatic, spicy house-blend Peri-Peri and chatpatta masala.</p>
                 </div>
             </div>
         </section>
 
+        <div class="map-section">
+            <div class="map-header">
+                <i class="fas fa-map-marked-alt"></i>
+                <span>Our Official Location (Google Maps)</span>
+            </div>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13834.720194483765!2d70.80164625!3d29.88796675!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x393b006815147be1%3A0x633a6829705a6efc!2sKot%20Chutta%2C%20Dera%20Ghazi%20Khan%2C%20Punjab%2C%20Pakistan!5e0!3m2!1sen!2s!4v1716999999999!5m2!1sen!2s" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+
     </div>
 
-    <p class="footer-note">© 2026 The Pizza Hut Kot Chutta. All Rights Reserved.</p>
+    <p class="footer-note">© 2026 The Pizza Hut Premium Menu. All Rights Reserved.</p>
 
     <div class="order-bar">
         <a href="https://wa.me/923308493333" class="whatsapp-btn" target="_blank">
-            <i class="fab fa-whatsapp"></i> Order via WhatsApp
+            <i class="fab fa-whatsapp"></i> Order Instant via WhatsApp
         </a>
     </div>
 
