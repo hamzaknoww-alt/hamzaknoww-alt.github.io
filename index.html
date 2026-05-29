@@ -5,77 +5,308 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="HJ48lGJ9wLBUrpdBaLdSRD6WqzRzkBTMGLcAqIJd6Sc" />
     <title>The Pizza Hut - Kot Chutta Daily Deals</title>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            --red: #C8102E;
-            --orange: #FF6B35;
-            --cream: #FFF8EE;
-            --dark: #1A0A00;
-            --charcoal: #2D1500;
-            --gold: #D4A843;
-            --whatsapp: #25d366;
+            --red: #D2122E;
+            --orange: #FF5A00;
+            --cream: #FFFBF5;
+            --dark: #0F0905;
+            --card-bg: #FFFFFF;
+            --gold: #E5A93C;
+            --whatsapp: #25D366;
+            --text-muted: #665E57;
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; -webkit-tap-highlight-color: transparent; }
+        * { 
+            box-sizing: border-box; 
+            margin: 0; 
+            padding: 0; 
+            font-family: 'Poppins', sans-serif; 
+            -webkit-tap-highlight-color: transparent; 
+        }
 
-        body { background-color: var(--cream); color: var(--dark); overflow-x: hidden; }
+        body { 
+            background-color: var(--cream); 
+            color: var(--dark); 
+            overflow-x: hidden; 
+        }
 
+        /* Hero Header Section */
         header {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=1000&q=80');
-            background-size: cover; background-position: center; text-align: center; padding: 45px 20px; color: white; border-bottom: 5px solid var(--orange);
+            background: linear-gradient(180deg, rgba(15,9,5,0.6) 0%, rgba(15,9,5,0.95) 100%), 
+                        url('https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=1200&q=80');
+            background-size: cover; 
+            background-position: center; 
+            text-align: center; 
+            padding: 65px 20px 45px; 
+            color: white; 
+            position: relative;
         }
 
-        .logo-font { font-family: 'Bebas Neue', sans-serif; font-size: 4rem; letter-spacing: 1px; text-shadow: 3px 3px 0px var(--red); line-height: 1; }
-        .tagline { font-size: 1rem; color: var(--gold); margin-top: 5px; font-weight: 600; }
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, var(--red), var(--orange), var(--gold));
+        }
 
+        .logo-font { 
+            font-family: 'Bebas Neue', sans-serif; 
+            font-size: 4.5rem; 
+            letter-spacing: 2px; 
+            text-shadow: 4px 4px 0px var(--red); 
+            line-height: 1;
+            margin-bottom: 5px;
+            animation: bounceIn 1s ease;
+        }
+
+        .tagline { 
+            font-size: 1.1rem; 
+            color: var(--gold); 
+            font-weight: 600; 
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 15px;
+        }
+
+        .location-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .location-badge i { color: var(--orange); }
+
+        /* Navigation Bar (Sticky Tabs) */
         .tabs-container {
-            position: sticky; top: 0; background: var(--dark); padding: 12px 0; z-index: 100;
-            overflow-x: auto; white-space: nowrap; display: flex; scrollbar-width: none; box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            position: sticky; 
+            top: 0; 
+            background: var(--dark); 
+            padding: 14px 0; 
+            z-index: 100;
+            overflow-x: auto; 
+            white-space: nowrap; 
+            display: flex; 
+            scrollbar-width: none; 
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
         }
         .tabs-container::-webkit-scrollbar { display: none; }
 
         .tab-btn {
-            background: none; border: none; color: #b3b3b3; padding: 10px 22px; cursor: pointer; font-weight: 600; font-size: 0.95rem; border-radius: 25px; transition: 0.3s; margin: 0 5px;
+            background: rgba(255,255,255,0.05); 
+            border: 1px solid rgba(255,255,255,0.1); 
+            color: #D1CFCB; 
+            padding: 10px 24px; 
+            cursor: pointer; 
+            font-weight: 600; 
+            font-size: 0.9rem; 
+            border-radius: 30px; 
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
+            margin: 0 6px;
         }
 
-        .tab-btn.active { background: var(--red); color: white; box-shadow: 0 4px 8px rgba(200,16,46,0.4); }
+        .tab-btn.active { 
+            background: linear-gradient(135deg, var(--red), var(--orange)); 
+            color: white; 
+            border-color: transparent;
+            box-shadow: 0 6px 15px rgba(210,18,46,0.4); 
+            transform: scale(1.05);
+        }
 
-        .menu-container { max-width: 800px; margin: auto; padding: 15px; padding-bottom: 100px; }
+        /* Content Container */
+        .menu-container { 
+            max-width: 750px; 
+            margin: auto; 
+            padding: 20px 16px 120px; 
+        }
 
         .category-section { display: none; }
-        .category-section.active { display: block; animation: fadeIn 0.4s ease-in-out; }
+        .category-section.active { display: block; }
 
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-
+        /* Typography & Titles */
         .day-title { 
-            background: var(--orange); color: white; padding: 6px 15px; border-radius: 20px; 
-            font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; margin: 25px 0 12px; display: inline-block; letter-spacing: 0.5px;
+            background: linear-gradient(135deg, var(--orange), #FF7A00); 
+            color: white; 
+            padding: 8px 18px; 
+            border-radius: 30px; 
+            font-family: 'Bebas Neue', sans-serif; 
+            font-size: 1.8rem; 
+            margin: 30px 0 15px; 
+            display: inline-flex; 
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 10px rgba(255,90,0,0.2);
+            letter-spacing: 0.5px;
         }
 
-        .section-title { font-family: 'Bebas Neue', sans-serif; font-size: 2.5rem; color: var(--red); margin: 25px 0 15px 0; border-bottom: 2px dashed var(--orange); padding-bottom: 5px; }
+        .section-title { 
+            font-family: 'Bebas Neue', sans-serif; 
+            font-size: 2.8rem; 
+            color: var(--red); 
+            margin: 25px 0 20px; 
+            position: relative;
+            display: inline-block;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--gold);
+            border-radius: 2px;
+        }
 
+        /* Food & Deal Cards Design */
         .menu-item {
-            background: white; border-radius: 15px; padding: 15px; margin-bottom: 15px; 
-            box-shadow: 0 4px 12px rgba(45,21,0,0.05); border-left: 5px solid var(--gold);
+            background: var(--card-bg); 
+            border-radius: 18px; 
+            padding: 18px; 
+            margin-bottom: 16px; 
+            box-shadow: 0 6px 16px rgba(15,9,5,0.04); 
+            border: 1px solid rgba(229,169,60,0.15);
+            border-left: 6px solid var(--red);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            animation: slideUp 0.4s ease-out forwards;
         }
 
-        .item-header { display: flex; justify-content: space-between; font-weight: 700; font-size: 1.15rem; color: var(--charcoal); }
-        .price { color: var(--red); white-space: nowrap; }
-        .details { font-size: 0.85rem; color: #666; margin-top: 5px; line-height: 1.4; }
+        /* Premium highlight for Arabian Broast */
+        .menu-item.featured {
+            border-left-color: var(--gold);
+            background: linear-gradient(180deg, #FFFFFF 0%, #FFFDF9 100%);
+            border: 1px solid rgba(229,169,60,0.4);
+            border-left: 6px solid var(--gold);
+        }
+        
+        .menu-item.featured::before {
+            content: '⭐ MOST POPULAR';
+            position: absolute;
+            top: -10px;
+            right: 15px;
+            background: var(--gold);
+            color: var(--dark);
+            font-size: 0.65rem;
+            font-weight: 800;
+            padding: 2px 10px;
+            border-radius: 10px;
+            letter-spacing: 0.5px;
+        }
 
-        .price-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; background: #fffdf9; padding: 6px; border-radius: 8px; border: 1px solid #f0e6d2; }
-        .price-badge { font-size: 0.8rem; font-weight: 600; background-color: var(--cream); padding: 4px 8px; border-radius: 5px; color: var(--charcoal); border: 1px solid #e2d4b7; }
+        .item-header { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center;
+            font-weight: 700; 
+            font-size: 1.2rem; 
+            color: var(--dark); 
+        }
+
+        .price { 
+            color: var(--red); 
+            white-space: nowrap; 
+            font-weight: 800;
+            background: rgba(210,18,46,0.06);
+            padding: 4px 12px;
+            border-radius: 10px;
+            font-size: 1.1rem;
+        }
+        
+        .menu-item.featured .price {
+            color: #B57A00;
+            background: rgba(229,169,60,0.15);
+        }
+
+        .details { 
+            font-size: 0.9rem; 
+            color: var(--text-muted); 
+            margin-top: 8px; 
+            line-height: 1.5; 
+            font-weight: 400;
+        }
+
+        /* Pizza Sizes Pricing Layout */
+        .price-row { 
+            display: flex; 
+            flex-wrap: wrap; 
+            gap: 8px; 
+            margin-top: 12px; 
+            background: #FAF6F0; 
+            padding: 8px; 
+            border-radius: 12px; 
+        }
+        .price-badge { 
+            font-size: 0.8rem; 
+            font-weight: 600; 
+            background-color: white; 
+            padding: 6px 12px; 
+            border-radius: 8px; 
+            color: var(--dark); 
+            border: 1px solid #EAE5DD;
+            flex: 1;
+            text-align: center;
+            min-width: 90px;
+        }
         .price-badge span { color: var(--red); font-weight: 700; }
 
-        .footer-note { text-align: center; padding: 20px; font-size: 0.85rem; color: #888; margin-top: 40px; }
+        .footer-note { text-align: center; padding: 20px; font-size: 0.85rem; color: #999; margin-top: 50px; }
 
-        .order-bar { position: fixed; bottom: 0; left: 0; right: 0; background: white; padding: 12px 20px; text-align: center; box-shadow: 0 -4px 15px rgba(0,0,0,0.1); z-index: 1000; }
+        /* Floating Order Bar */
+        .order-bar { 
+            position: fixed; 
+            bottom: 0; 
+            left: 0; 
+            right: 0; 
+            background: rgba(255, 255, 255, 0.85); 
+            backdrop-filter: blur(10px);
+            padding: 16px 20px; 
+            text-align: center; 
+            box-shadow: 0 -10px 25px rgba(0,0,0,0.08); 
+            z-index: 1000; 
+        }
         .whatsapp-btn { 
-            background: var(--whatsapp); color: white; text-decoration: none; padding: 12px 30px; 
-            border-radius: 30px; font-weight: 700; display: inline-flex; align-items: center; gap: 10px; width: 100%; max-width: 400px; justify-content: center; box-shadow: 0 4px 12px rgba(37,211,102,0.4);
+            background: linear-gradient(135deg, #25D366, #20BA5A); 
+            color: white; 
+            text-decoration: none; 
+            padding: 14px 30px; 
+            border-radius: 35px; 
+            font-weight: 700; 
+            display: inline-flex; 
+            align-items: center; 
+            gap: 12px; 
+            width: 100%; 
+            max-width: 420px; 
+            justify-content: center; 
+            box-shadow: 0 6px 20px rgba(37,211,102,0.3);
+            font-size: 1.1rem;
+            transition: transform 0.2s;
+        }
+        .whatsapp-btn:active { transform: scale(0.98); }
+
+        /* Keyframe Animations */
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes bounceIn {
+            0% { transform: scale(0.9); opacity: 0; }
+            60% { transform: scale(1.02); }
+            100% { transform: scale(1); opacity: 1; }
         }
     </style>
 </head>
@@ -83,7 +314,8 @@
 
     <header>
         <h1 class="logo-font">THE PIZZA HUT</h1>
-        <p class="tagline">Kot Chutta Special Daily Deals</p>
+        <p class="tagline">Delicious & Freshly Baked</p>
+        <span class="location-badge"><i class="fas fa-map-marker-alt"></i> Bypass 33 Morr, Kot Chutta</span>
     </header>
 
     <div class="tabs-container">
@@ -97,13 +329,13 @@
 
         <section id="daily" class="category-section active">
             
-            <div class="day-title">Monday Deal 🌙</div>
+            <div class="day-title"><i class="fas fa-moon"></i> Monday Deal</div>
             <div class="menu-item">
                 <div class="item-header"><span>Monday Super Deal</span><span class="price">Rs. 1,450</span></div>
                 <p class="details">1 Small Pizza + 2 Zinger Burgers + 4 Wings + Regular Fries + Half Ltr Cold Drink</p>
             </div>
 
-            <div class="day-title">Tuesday Deal 🔥</div>
+            <div class="day-title"><i class="fas fa-fire"></i> Tuesday Deal</div>
             <div class="menu-item">
                 <div class="item-header"><span>Tuesday Special Deal</span><span class="price">Rs. 1,850</span></div>
                 <p class="details">1 Medium Pizza + 5 Wings + 5 Nuggets + 1.5 Ltr Drink + Fries + Deep Sauce</p>
@@ -113,13 +345,13 @@
                 <p class="details">Arabian Breast + 10 Pcs Wings + Reg Fries + 1 Ltr Bottle + 5 Naan</p>
             </div>
 
-            <div class="day-title">Wednesday Deal 🍕</div>
+            <div class="day-title"><i class="fas fa-pizza-slice"></i> Wednesday Deal</div>
             <div class="menu-item">
                 <div class="item-header"><span>Wednesday Mix Deal</span><span class="price">Rs. 1,780</span></div>
                 <p class="details">1 Medium Pizza + 1 Arabian Roll + 4 Wings + 4 Nuggets + Reg Fries</p>
             </div>
 
-            <div class="day-title">Friday Deal ✨</div>
+            <div class="day-title"><i class="fas fa-star"></i> Friday Deal</div>
             <div class="menu-item">
                 <div class="item-header"><span>Friday Hot Deal</span><span class="price">Rs. 1,699</span></div>
                 <p class="details">1 Large Pizza + 1 Zinger Burger + 1 Ltr Cold Drink</p>
@@ -132,7 +364,7 @@
         </section>
 
         <section id="weekend" class="category-section">
-            <div class="day-title">Saturday & Sunday 🎊</div>
+            <div class="day-title"><i class="fas fa-laugh-beam"></i> Saturday & Sunday</div>
             <div class="menu-item">
                 <div class="item-header"><span>Weekend Mega Deal</span><span class="price">Rs. 1,970</span></div>
                 <p class="details">1 Large Pizza + 1 Chicken Shawarma Roll + 1 Chicken Paratha Roll + 1 Zinger Burger + Fries + 2 Dips</p>
@@ -151,28 +383,34 @@
             <h2 class="section-title">All Pizza Flavors</h2>
             
             <div class="menu-item">
-                <div class="item-header"><span>Regular Flavors</span><span class="price">Rates</span></div>
+                <div class="item-header"><span>Regular Flavors</span><span class="price">Menu Rates</span></div>
                 <p class="details">Chicken Tikka, Chicken Fajita, Chicken Supreme, Hot & Spicy, Tenderi Pizza, Chicken Lover, Cheese Lover, Chicken Chili, Vegetable Pizza, Achari Pizza, Bar B Q Pizza</p>
                 <div class="price-row">
-                    <div class="price-badge">Small: <span>Rs. 1,080</span></div>
-                    <div class="price-badge">Medium: <span>Rs. 2,080</span></div>
-                    <div class="price-badge">Large: <span>Rs. 2,680</span></div>
+                    <div class="price-badge">Small <span>Rs. 1,080</span></div>
+                    <div class="price-badge">Medium <span>Rs. 2,080</span></div>
+                    <div class="price-badge">Large <span>Rs. 2,680</span></div>
                 </div>
             </div>
             
             <div class="menu-item">
-                <div class="item-header"><span>Special & Premium Flavors</span><span class="price">Rates</span></div>
+                <div class="item-header"><span>Special & Premium Flavors</span><span class="price">Menu Rates</span></div>
                 <p class="details">Special Pizza, Mughlai Pizza, Malai Boti Pizza, Lasania Pizza, Creamy Max Pizza, Crown Crust Pizza, Doner Pizza, Kabab Stuffed Crust, Seekh Kabab Pizza</p>
                 <div class="price-row">
-                    <div class="price-badge">Small: <span>Rs. 1,180</span></div>
-                    <div class="price-badge">Medium: <span>Rs. 2,180</span></div>
-                    <div class="price-badge">Large: <span>Rs. 2,880</span></div>
+                    <div class="price-badge">Small <span>Rs. 1,180</span></div>
+                    <div class="price-badge">Medium <span>Rs. 2,180</span></div>
+                    <div class="price-badge">Large <span>Rs. 2,880</span></div>
                 </div>
             </div>
         </section>
 
         <section id="burgers" class="category-section">
-            <h2 class="section-title">Burgers, Rolls & Shawarma</h2>
+            <h2 class="section-title">Burgers, Rolls & Sides</h2>
+            
+            <div class="menu-item featured">
+                <div class="item-header"><span>Arabian Broast</span><span class="price">Rs. 500</span></div>
+                <p class="details">Crispy, juicy chicken broast fried to golden perfection with special Arabian spices.</p>
+            </div>
+            
             <div class="menu-item"><div class="item-header"><span>Zinger Burger</span><span class="price">Rs. 320</span></div></div>
             <div class="menu-item"><div class="item-header"><span>Zinger Cheese Burger</span><span class="price">Rs. 360</span></div></div>
             <div class="menu-item"><div class="item-header"><span>Chicken Paratha Roll</span><span class="price">Rs. 280</span></div></div>
@@ -188,7 +426,7 @@
 
     <div class="order-bar">
         <a href="https://wa.me/923308493333" class="whatsapp-btn" target="_blank">
-            <i class="fab fa-whatsapp"></i> Order on WhatsApp
+            <i class="fab fa-whatsapp"></i> Order via WhatsApp
         </a>
     </div>
 
@@ -205,10 +443,19 @@
                 tabs[i].classList.remove("active");
             }
             
-            document.getElementById(name).style.display = "block";
-            document.getElementById(name).classList.add("active");
-            event.currentTarget.classList.add("active");
+            var targetSection = document.getElementById(name);
+            targetSection.style.display = "block";
+            targetSection.classList.add("active");
             
+            // Re-trigger CSS animations on children
+            var items = targetSection.getElementsByClassName("menu-item");
+            for(var j=0; j<items.length; j++) {
+                items[j].style.animation = 'none';
+                items[j].offsetHeight; /* trigger reflow */
+                items[j].style.animation = null;
+            }
+            
+            event.currentTarget.classList.add("active");
             event.currentTarget.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
         }
     </script>
